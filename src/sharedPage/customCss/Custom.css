@@ -1,0 +1,52 @@
+.btn1 {
+  background-color: #15a082;
+  border-radius: 4px;
+  color: aliceblue;
+}
+
+.btn1:hover {
+  cursor: pointer;
+}
+
+.btn2 {
+  background-color: #dcdcdc;
+  border-radius: 4px;
+  color: slate-500;
+}
+
+.btn2:hover {
+  cursor: pointer;
+  color: #15a082;
+}
+
+.fonts {
+  color: #087f65;
+}
+
+.shadow1 {
+  border-radius: 22px;
+  /* background: #e0e0e0;
+    box-shadow:  25px 25px 60px #898989,
+                 -25px -25px 60px #ffffff; */
+}
+.shadow1:hover {
+  border-radius: 16px;
+  background: #e0e0e0;
+  box-shadow: 5px 5px 0px #087f65, -5px -5px 0px #ffffff;
+}
+.jobs:hover .apply {
+  background-color: #087f65;
+  color: #ffffff;
+  transition: padding 1s ease-out;
+  padding-right: 20px;
+}
+.jobs:hover {
+  box-shadow: 5px 5px 0px #ffffff, -5px -5px 0px #087f65;
+  transition: box-shadow 600ms;
+}
+
+.topImg {
+  transform: rotate(180deg);
+  position: absolute;
+  top: 0px;
+}

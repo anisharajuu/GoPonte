@@ -1,0 +1,68 @@
+// [
+//     {
+//         "name":"Digital Marketing Intern",
+//         "place":"San Francisco, CA",
+//         "type":"Part Time",
+//         "company":"TechSavvy Solutions",
+//         "img":"https://img.freepik.com/free-photo/reduce-reuse-recycle-symbol-icon_53876-138174.jpg?size=626&ext=jpg&ga=GA1.1.537590259.1669397270&semt=sph",
+//         "time":"30",
+//         "details":"Join TechSavvy Solutions as a Digital Marketing Intern and gain hands-on experience in crafting digital campaigns, analyzing market trends, and managing social media platforms. You'll collaborate with our marketing team to develop innovative strategies aimed at enhancing brand visibility and engagement across various online channels.",
+//         "salary":"1,800",
+//         "source":"Linkedin"
+//     },
+//     {
+//         "name":"Sustainable Development Intern",
+//         "place":"Seattle, WA",
+//         "company":"GreenGrowth Initiatives",
+//         "type":"Full Time",
+//         "img":"https://img.freepik.com/free-photo/company-co-business-logo-gold-emboss_53876-143192.jpg?size=626&ext=jpg&ga=GA1.1.537590259.1669397270&semt=sph",
+//         "time":"55",
+//         "details":"Become a part of GreenGrowth Initiatives and work on projects centered around sustainable development. You'll engage in research, collaborate on eco-friendly solutions, and contribute to the creation of strategies promoting environmental conservation and sustainable practices.",
+//         "salary":"2,000",
+//         "source":"Internshala"
+//     },
+//     {
+//         "name":"Healthcare Analytics Intern",
+//         "place":"Boston, MA",
+//         "company":"HealthTech Innovations",
+//         "type":"Part Time",
+//         "img":"https://img.freepik.com/free-photo/3d-render-vs-company-metal-letter-logo-pen-tool-created-clipping-path-included-jpeg-easy-composite_460848-7192.jpg?size=626&ext=jpg&ga=GA1.2.537590259.1669397270&semt=sph",
+//         "time":"45",
+//         "details":"Dive into the world of healthcare analytics with HealthTech Innovations. As an intern, you'll assist in collecting and analyzing healthcare data, contributing to the development of insights that drive decision-making processes. Gain exposure to cutting-edge technologies while supporting our mission to revolutionize the healthcare industry.",
+//         "salary":"2,200",
+//         "source":"Indeed "
+//     },
+//     {
+//         "name":"Data Science Intern",
+//         "place":"New York City, NY",
+//         "type":"Full Time",
+//         "company":"DataDriven Dynamics",
+//         "time":"5",
+//         "img":"https://img.freepik.com/free-photo/homemade-cake-bakery-round-board-mockup_53876-65258.jpg?size=626&ext=jpg&ga=GA1.2.537590259.1669397270&semt=sph",
+//         "details":"Join DataDriven Dynamics as a Data Science Intern and immerse yourself in the world of data analytics. Work alongside experienced professionals, handling data collection, analysis, and visualization tasks while contributing to the development of cutting-edge algorithms and models.",
+//         "salary":"2,500",
+//         "source":"Linkedin"
+//     },
+//     {
+//         "name":"Graphic Design Intern",
+//         "place":"Los Angeles, CA",
+//         "company":"CreativeCraze Studios",
+//         "type":"Full Time",
+//         "img":"https://img.freepik.com/free-photo/womens-day-8-march-space-your-text-3d-render-illustration-design_460848-10134.jpg?size=626&ext=jpg&ga=GA1.2.537590259.1669397270&semt=sph",
+//         "time":"30",
+//         "details":"At CreativeCraze Studios, unleash your creativity as a Graphic Design Intern. You'll assist in conceptualizing and producing visual content for various platforms, gaining hands-on experience in design software and collaborating with our creative team to bring ideas to life.",
+//         "salary":"1,600",
+//         "source":"Linkedin"
+//     },
+//     {
+//         "name":"Artificial Intelligence Research Intern",
+//         "place":"Austin, TX",
+//         "company":"AI Innovations Co.",
+//         "type":"Full Time",
+//         "img":"https://img.freepik.com/free-photo/diet-health-nutrition-life-food-eating-concept_53876-120817.jpg?size=626&ext=jpg&ga=GA1.2.537590259.1669397270&semt=sph",
+//         "time":"15",
+//         "details":"Explore the realm of artificial intelligence with AI Innovations Co. As an intern, you'll engage in research projects, analyze AI algorithms, and assist in developing innovative solutions. Get involved in the future of technology and contribute to groundbreaking advancements.",
+//         "salary":"2,300",
+//         "source":"Linkedin"
+//     }
+// ]
