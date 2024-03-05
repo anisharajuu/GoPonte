@@ -7,7 +7,7 @@ import rocket from "../../assets/rocket.png";
 const History = () => {
   return (
     <div className="py-[10px] mt-[40px]">
-      <h1 className="text-[48px] text-center mb-[10px] fonts font-bold font-serif">
+      <h1 className="text-[48px] text-center mb-[10px] blue-medium font-bold font-serif">
         History
       </h1>
 
@@ -28,8 +28,8 @@ const History = () => {
               ></img>
             </div>
             <p className="col-span-2 text-slate-600 text-l items-center my-auto py-1">
-              Ponte was founded by ex-Google and ex-Mastercard employees after navigating the
-              complexities and issues around internships
+              Ponte was founded by ex-Google and ex-Mastercard employees after
+              navigating the complexities and issues around internships
             </p>
           </div>
         </div>
@@ -49,8 +49,8 @@ const History = () => {
             </div>
 
             <p className="col-span-2 text-slate-600 text-l items-center my-autos py-1">
-              The company captured the attention of investors who
-              helped fund the platform as well as participating in selective accelerators
+              The company captured the attention of investors who helped fund
+              the platform as well as participating in selective accelerators
             </p>
           </div>
         </div>
@@ -70,15 +70,14 @@ const History = () => {
             </div>
 
             <p className="col-span-2 text-slate-600 text-l ml-0 items-center">
-              After months of planning and work behind the scenes,
-              Ponte officially launched in February 2024
+              After months of planning and work behind the scenes, Ponte
+              officially launched in February 2024
             </p>
           </div>
         </div>
       </div>
 
-      <h1 className="text-[48px] text-center mb-[20px] mt-[0px] fonts font-bold font-serif">
-
+      <h1 className="text-[48px] text-center mb-[20px] mt-[0px] blue-medium font-bold font-serif">
         Achievements
       </h1>
 

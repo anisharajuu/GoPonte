@@ -15,28 +15,28 @@ const Navbar = () => {
       <Link
         to="/"
         onClick={() => setShow(!show)}
-        className=" pr-[25px] focus:outline-none  transition duration-150 ease-in-out hover:bg-[#00ae87] hover:text-white  rounded font-medium  px-5 py-2 "
+        className=" pr-[25px] focus:outline-none hover:bg-[#023e8a] transition duration-150 ease-in-out hover:text-white  rounded font-medium  px-5 py-2 "
       >
         Overview
       </Link>
       <Link
         to="/about"
         onClick={() => setShow(!show)}
-        className=" pr-[25px] focus:outline-none  transition duration-150 ease-in-out hover:bg-[#00ae87] hover:text-white  rounded font-medium  px-5 py-2 "
+        className=" pr-[25px] focus:outline-none hover:bg-[#023e8a] transition duration-150 ease-in-out hover:text-white  rounded font-medium  px-5 py-2 "
       >
         About
       </Link>
       <Link
         to="/signup"
         onClick={() => setShow(!show)}
-        className=" pr-[25px] focus:outline-none  transition duration-150 ease-in-out hover:bg-[#00ae87] hover:text-white  rounded font-medium  px-5 py-2 "
+        className=" pr-[25px] focus:outline-none hover:bg-[#023e8a] transition duration-150 ease-in-out hover:text-white  rounded font-medium  px-5 py-2 "
       >
         Sign Up
       </Link>
       <Link
         to="/login"
         onClick={() => setShow(!show)}
-        className=" pr-[25px] focus:outline-none -gray-300  transition duration-150 ease-in-out hover:bg-[#00ae87] hover:text-white  rounded font-medium  px-5 py-2 "
+        className=" pr-[25px] focus:outline-none -gray-300 hover:bg-[#023e8a] transition duration-150 ease-in-out hover:text-white  rounded font-medium  px-5 py-2 "
       >
         Login
       </Link>
@@ -49,6 +49,7 @@ const Navbar = () => {
         <nav className=" shadow xl:block hidden w-full bg-[#FFFEFD] z-40">
           <div className="mx-auto container px-6 py-2 xl:py-0">
             <div className="flex items-center justify-between w-full">
+              <img className="h-9 w-auto" src="./logo.png" />
               {/* lg ---start */}
               <div className="">
                 <Link to="/" className="">

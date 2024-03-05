@@ -26,7 +26,7 @@ const ServiceType = () => {
   return (
     <div className="mt-10 ">
       <header>
-        <h2 className="fonts text-center text-[48px] font-bold font-serif">
+        <h2 className="blue-medium text-center text-[48px] font-bold font-serif">
           {" "}
           What we Offer{" "}
         </h2>
@@ -49,7 +49,7 @@ const ServiceType = () => {
                 className="h-[100px] w-[auto] mb-3"
                 alt=""
               />
-              <h4 className="text-4xl font-serif fonts mt-6 mb-3">
+              <h4 className="text-4xl font-serif blue-light mt-6 mb-3">
                 {service?.name}{" "}
               </h4>
               <p className="text-slate-600">{service?.details}</p>

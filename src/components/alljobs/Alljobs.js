@@ -8,110 +8,109 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const Alljobs = () => {
-    const [firstName, setFirstName] = useState("");
-    const [lastName, setLastName] = useState("");
-    const [email, setEmail] = useState("");
-    const [showError, setShowError] = useState(false);
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [showError, setShowError] = useState(false);
 
-    const handleButtonClick = async (event) => {
-        event.preventDefault();
+  const handleButtonClick = async (event) => {
+    event.preventDefault();
 
-        const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
-        if (!isValidEmail) {
-            setShowError(true);
-        } else {
-            setShowError(false);
+    if (!isValidEmail) {
+      setShowError(true);
+    } else {
+      setShowError(false);
 
-            const postData = {
-                firstName: firstName,
-                lastName: lastName,
-                email: email,
-            };
+      const postData = {
+        firstName: firstName,
+        lastName: lastName,
+        email: email,
+      };
 
-            try {
-                const response = await axios.post(
-                    "https://sheetdb.io/api/v1/sdiq0easp6f5x",
-                    postData
-                );
+      try {
+        const response = await axios.post(
+          "https://sheetdb.io/api/v1/sdiq0easp6f5x",
+          postData
+        );
 
-                console.log("Server Response:", response.data);
+        console.log("Server Response:", response.data);
 
-                setFirstName("");
-                setLastName("");
-                setEmail("");
-                toast.success("Thank you for joining!");
-            } catch (error) {
-                console.error("Error:", error.message);
-                toast.error("Error submitting the form. Please try again.");
-            }
-        }
-    };
+        setFirstName("");
+        setLastName("");
+        setEmail("");
+        toast.success("Thank you for joining!");
+      } catch (error) {
+        console.error("Error:", error.message);
+        toast.error("Error submitting the form. Please try again.");
+      }
+    }
+  };
 
-    return (
-        <div
-            data-aos="zoom-in"
-            className="py-12 bg-[#087f65] rounded hover:shadow-xl my-5 text-black"
+  return (
+    <div
+      data-aos="zoom-in"
+      className="py-12 bg-[#0077b6] rounded hover:shadow-xl my-5 text-white"
+    >
+      <h1 className="text-5xl text-center font-bold font-serif mb-2">
+        Join our waitlist
+      </h1>
+      <p className="text-center text-xl mb-7">
+        Secure your spot to unlock exclusive access to our first
+        micro-internship postings!
+      </p>
+      <div className="mt-5 flex flex-col items-center">
+        <form
+          className="flex flex-col gap-5 rounded p-5"
+          onSubmit={handleButtonClick}
         >
-            <h1 className="text-5xl text-center font-bold font-serif mb-2">
-                Join our waitlist
-            </h1>
-            <p className="text-center text-xl mb-7">
-                Secure your spot to unlock exclusive access to our first micro-internship postings!
-            </p>
-            <div className="mt-5 flex flex-col items-center">
-                <form
-                    className="flex flex-col gap-5 rounded p-5"
-                    onSubmit={handleButtonClick}
-
-                >
-                    <div className="flex gap-5">
-                        <div className="flex-1">
-                            <label>
-                                <input
-                                    type="text"
-                                    placeholder="First Name"
-                                    className="h-12 input-white rounded-xl w-full max-w-xs border-r-0 px-3 input input-bordered"
-                                    value={firstName}
-                                    onChange={(e) => setFirstName(e.target.value)}
-                                />
-                            </label>
-                        </div>
-                        <div className="flex-1">
-                            <label>
-                                <input
-                                    type="text"
-                                    placeholder="Last Name"
-                                    className="h-12 input-black rounded-xl w-full max-w-xs px-3 input input-bordered"
-                                    value={lastName}
-                                    onChange={(e) => setLastName(e.target.value)}
-                                />
-                            </label>
-                        </div>
-                    </div>
-                    <label>
-                        <input
-                            type="text"
-                            placeholder="Email"
-                            className="h-12 input-black rounded-xl w-full max-w-m px-3 input input-bordered"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                        />
-                    </label>
-                    {showError && (
-                        <div className="text-center text-red-500 mt-2">
-                            Please enter a valid email.
-                        </div>
-                    )}
-                    <button className="bg-slate-700 h-12 text-slate-100 px-5 rounded-md">
-                        Submit{" "}
-                    </button>
-
-                </form>
+          <div className="flex gap-5">
+            <div className="flex-1">
+              <label>
+                <input
+                  type="text"
+                  placeholder="First Name"
+                  className="h-12 input-white rounded-xl w-full max-w-xs border-r-0 px-3 input input-bordered"
+                  value={firstName}
+                  onChange={(e) => setFirstName(e.target.value)}
+                />
+              </label>
             </div>
-        </div>
-    );
-    /*
+            <div className="flex-1">
+              <label>
+                <input
+                  type="text"
+                  placeholder="Last Name"
+                  className="h-12 input-black rounded-xl w-full max-w-xs px-3 input input-bordered"
+                  value={lastName}
+                  onChange={(e) => setLastName(e.target.value)}
+                />
+              </label>
+            </div>
+          </div>
+          <label>
+            <input
+              type="text"
+              placeholder="Email"
+              className="h-12 input-black rounded-xl w-full max-w-m px-3 input input-bordered"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </label>
+          {showError && (
+            <div className="text-center text-red-500 mt-2">
+              Please enter a valid email.
+            </div>
+          )}
+          <button className="bg-slate-700 h-12 text-slate-100 px-5 rounded-md">
+            Submit{" "}
+          </button>
+        </form>
+      </div>
+    </div>
+  );
+  /*
   const [jobs, setJobs] = useState([]);
 
   useEffect(() => {
@@ -217,7 +216,6 @@ const Alljobs = () => {
   );
 
      */
-
 };
 
 export default Alljobs;

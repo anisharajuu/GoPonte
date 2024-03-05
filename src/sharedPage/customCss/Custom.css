@@ -1,5 +1,5 @@
 .btn1 {
-  background-color: #15a082;
+  background-color: #0077b6;
   border-radius: 4px;
   color: aliceblue;
 }
@@ -23,6 +23,18 @@
   color: #087f65;
 }
 
+.blue-light {
+  color: #0096c7;
+}
+
+.blue-dark {
+  color: #023e8a;
+}
+
+.blue-medium {
+  color: #0077b6;
+}
+
 .shadow1 {
   border-radius: 22px;
   /* background: #e0e0e0;
@@ -32,7 +44,7 @@
 .shadow1:hover {
   border-radius: 16px;
   background: #e0e0e0;
-  box-shadow: 5px 5px 0px #087f65, -5px -5px 0px #ffffff;
+  box-shadow: 5px 5px 0px #0096c7, -5px -5px 0px #ffffff;
 }
 .jobs:hover .apply {
   background-color: #087f65;

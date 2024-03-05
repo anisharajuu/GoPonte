@@ -21,7 +21,7 @@ const QuickStart = () => {
   return (
     <div className="mt-10 border-2 rounded p-10">
       <header>
-        <h2 className="fonts text-center text-[48px] font-bold font-serif">
+        <h2 className="blue-medium text-center text-[48px] font-bold font-serif">
           {" "}
           Get Started Today!{" "}
         </h2>
@@ -37,9 +37,9 @@ const QuickStart = () => {
           return (
             <div
               data-aos="flip-left"
-              className="shadow1 shadow-2xl px-5 py-[30px] rounded-lg"
+              className="shadow1 shadow-2xl px-5 py-[30px] rounded-lg bg-[#FFFEFD]"
             >
-              <h4 className="text-4xl font-serif fonts my-5">
+              <h4 className="text-4xl font-serif blue-light my-5">
                 {service?.name}{" "}
               </h4>
               <p className="text-slate-600">{service?.details}</p>
