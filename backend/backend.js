@@ -35,7 +35,6 @@ process.on("unhandledRejection", (reason, promise) => {
   // Handle the error, log it, or exit the process if necessary
 });
 
-
 app.post("/studentLogIn", function (req, res) {
   const { email, password } = req.body;
 
@@ -171,11 +170,12 @@ app.post("/apply/:jobId", function (req, res) {
     gradYear,
     university,
     experience,
-    jobId, // Include jobId in the application data
+    jobId,
+    userId: 1,
   };
 
   connection.query(
-    "INSERT INTO Applications SET ?",
+    "INSERT INTO applications SET ?",
     applicationData,
     function (err, result) {
       if (err) {
@@ -191,9 +191,7 @@ app.post("/apply/:jobId", function (req, res) {
   );
 });
 
-
 app.get("/job/:id");
-
 
 app.post("/addJob", (req, res) => {
   const { jobTitle, busName, startDate, duration, jobDesc } = req.body;
