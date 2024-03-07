@@ -158,27 +158,25 @@ app.get("/activeJobs/:jobId", (req, res) => {
   });
 });
 
-app.post("/apply", function (req, res) {
-  const { name, email, address, education, experience } = req.body;
+app.post("/apply/:jobId", function (req, res) {
+  const { name, gradYear, university, experience } = req.body;
+  const { jobId } = req.params;
 
-  if (!name || !email || !address || !education || !experience) {
+  if (!name || !gradYear || !university || !experience) {
     return res.status(400).json({ error: "Incomplete data provided." });
   }
 
-  const userData = {
-    fullName: name,
-    email,
-    street: address.street,
-    city: address.city,
-    state: address.state,
-    zip: address.zip,
-    education,
+  const applicationData = {
+    name,
+    gradYear,
+    university,
     experience,
+    jobId, // Include jobId in the application data
   };
 
   connection.query(
     "INSERT INTO Applications SET ?",
-    userData,
+    applicationData,
     function (err, result) {
       if (err) {
         console.error("Error inserting into the database:", err);
@@ -192,6 +190,7 @@ app.post("/apply", function (req, res) {
     }
   );
 });
+
 
 app.get("/job/:id");
 

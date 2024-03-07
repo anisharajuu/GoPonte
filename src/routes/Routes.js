@@ -9,6 +9,8 @@ import Resources from "../components/resources/Resources";
 import CVReview from "../components/FooterComponents/CVReview";
 import About from "../components/about/About.js";
 import Main from "../layout/Main";
+import StudentPortal from "../components/student/StudentPortal";
+import Apply from "../components/student/Apply";
 
 const routes = createBrowserRouter([
   {
@@ -56,6 +58,14 @@ const routes = createBrowserRouter([
       {
         path: "/userPortal",
         element: <userPortal />,
+      },
+      {
+        path: "/studentPortal",
+        element: <StudentPortal />,
+      },
+      {
+        path: "/apply",
+        element: <Apply />,
       },
     ],
   },
