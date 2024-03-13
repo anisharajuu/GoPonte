@@ -19,13 +19,13 @@ const QuickStart = () => {
     },
   ];
   return (
-    <div className="mt-10 border-2 rounded p-10">
+    <div className="mt-10 border-blue rounded p-10">
       <header>
-        <h2 className="blue-medium text-center text-[48px] font-bold font-serif">
+        <h2 className="blue-dark text-center text-[48px] font-bold font-serif">
           {" "}
           Get Started Today!{" "}
         </h2>
-        <p className="text-center text-slate-500 mb-10 mt-3 text-2xl font-semibold">
+        <p className="text-center blue-dark mb-10 mt-3 text-2xl font-semibold">
           {" "}
           Join Ponte today to take advantage of our specialized services!
           Develop your skills and gain real-world experience with a
@@ -37,12 +37,12 @@ const QuickStart = () => {
           return (
             <div
               data-aos="flip-left"
-              className="shadow1 shadow-2xl px-5 py-[30px] rounded-lg bg-[#FFFEFD]"
+              className="shadow1 shadow-2xl px-8 pt-[30px] pb-[50px] rounded-lg bg-[#FFFEFD]"
             >
-              <h4 className="text-4xl font-serif blue-light my-5">
+              <h4 className="text-4xl font-serif blue-medium my-4">
                 {service?.name}{" "}
               </h4>
-              <p className="text-slate-600">{service?.details}</p>
+              <p className="blue-medium">{service?.details}</p>
             </div>
           );
         })}

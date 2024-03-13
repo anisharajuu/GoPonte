@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "../../sharedPage/customCss/Custom.css";
+import loginImg from "../../assets/login.png";
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -54,15 +55,20 @@ const Login = () => {
     <div className="mt-5">
       <div className="flex flex-col lg:flex-row-reverse">
         <div className="text-center lg:text-left ">
-          <img
-            src="https://static.vecteezy.com/system/resources/previews/003/267/157/non_2x/man-access-application-log-in-with-password-on-computer-free-vector.jpg"
-            alt=""
-          />
+          <img alt="" src={loginImg} />
+          <a
+            href="https://www.vecteezy.com/free-vector/login"
+            className="absolute mt-[-30px] ml-[10px] flex-1"
+          >
+            Login Vectors by Vecteezy
+          </a>
         </div>
-        <div className="card flex-shrink-0 sm:w-full lg:max-w-md shadow-2xl bg-[#dcdcdc] rounded-sm">
-          <div className="card-body">
+        <div className="card flex-shrink-0 sm:w-full lg:max-w-md shadow-xl bg-[#e6eaed] rounded-sm">
+          <div className="card-body xl:py-[65px] xl:px-[40px]">
             <div className="form-control">
-              <h1 className="text-5xl fonts font-bold mb-7"> Log In </h1>
+              <h1 className="text-5xl blue-medium font-serif font-bold mb-5">
+                Log In
+              </h1>
               <label className="label">
                 <span className="label-text">Email</span>
               </label>
@@ -95,7 +101,7 @@ const Login = () => {
                 />
                 <button
                   type="button"
-                  className="absolute right-4 top-1/2 transform -translate-y-1/2 label-text-alt link link-hover"
+                  className="absolute right-4 top-1/2 transform -translate-y-1/2 label-text-alt link link-hover text-[15px]"
                   onClick={togglePasswordVisibility}
                 >
                   {showPassword ? "Hide" : "Show"}

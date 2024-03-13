@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "../../sharedPage/customCss/Custom.css";
+import signupImg from "../../assets/signup.png";
 
 const Signup = () => {
   const [formData, setFormData] = useState({
@@ -65,22 +66,19 @@ const Signup = () => {
       <div className="mt-5">
         <div className="flex flex-col lg:flex-row-reverse">
           <div className="text-center lg:text-left rounded-lg">
-            <img
-              src="https://static.vecteezy.com/system/resources/previews/004/578/780/non_2x/girl-putting-up-sign-for-plan-schedule-free-vector.jpg"
-              alt=""
-            />
+            <img alt="" src={signupImg} />
           </div>
-          <div className="card flex-shrink-0 sm:w-full lg:max-w-lg shadow-2xl bg-[#dcdcdc] rounded-sm">
-            <div className="card-body">
-              <div className="form-control">
-              <h1 className="text-5xl fonts font-bold mb-7">
+          <div className="card flex-shrink-0 sm:w-full lg:max-w-lg shadow-xl bg-[#e6eaed] rounded-sm">
+            <div className="card-body xl:py-[65px] xl:px-[40px]">
+              <div className="form-control ">
+                <h1 className="text-5xl blue-medium font-serif font-bold mb-3">
                   {" "}
                   Student Sign Up{" "}
                 </h1>
-                <div className="mb-4">
+                <div className="mb-5">
                   <Link
                     to="/BusinessSignup"
-                    className="text-[#00ae87] text-sm underline"
+                    className="blue-medium text-md underline"
                   >
                     Switch to Business
                   </Link>
@@ -88,12 +86,12 @@ const Signup = () => {
                 <div className="flex gap-5">
                   <div className="flex-1">
                     <label className="label">
-                    <span className="label-text">Name</span>
+                      <span className="label-text text-md">Name</span>
                     </label>
                     <input
                       type="text"
                       placeholder="First Name"
-                      className="input input-bordered"
+                      className="w-full input input-bordered"
                       name="firstName"
                       value={formData.firstName}
                       onChange={handleChange}
@@ -101,12 +99,12 @@ const Signup = () => {
                   </div>
                   <div className="flex-1">
                     <label className="label">
-                      <span className="label-text">Last Name</span>
+                      <span className="label-text ml-2">Last Name</span>
                     </label>
                     <input
                       type="text"
                       placeholder="Last Name"
-                      className="input input-bordered"
+                      className="w-full input input-bordered"
                       name="lastName"
                       value={formData.lastName}
                       onChange={handleChange}
@@ -145,7 +143,7 @@ const Signup = () => {
                   />
                   <button
                     type="button"
-                    className="absolute right-4 top-1/2 transform -translate-y-1/2 label-text-alt link link-hover"
+                    className="absolute right-4 top-1/2 transform -translate-y-1/2 label-text-alt link link-hover text-[15px]"
                     onClick={togglePasswordVisibility}
                   >
                     {showPassword ? "Hide" : "Show"}

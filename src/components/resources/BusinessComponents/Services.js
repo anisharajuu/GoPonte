@@ -19,13 +19,13 @@ const ServiceType = () => {
     },
   ];
   return (
-    <div className="mt-10 ">
+    <div className="mt-10 p-10 border-blue rounded">
       <header>
-        <h2 className="blue-medium text-center text-[48px] font-bold font-serif">
+        <h2 className="blue-dark text-center text-[48px] font-bold font-serif">
           {" "}
           What We Offer{" "}
         </h2>
-        <p className="text-center text-slate-500 mb-10 mt-3 text-2xl font-semibold">
+        <p className="text-center blue-dark mb-10 mt-3 text-2xl font-semibold">
           {" "}
           At Ponte, we stand out by providing unparalleled services to our
           clients. Our commitment revolves around delivering trustworthy and
@@ -37,12 +37,12 @@ const ServiceType = () => {
           return (
             <div
               data-aos="flip-left"
-              className="shadow1 shadow-2xl px-5 py-[30px] rounded-lg bg-[#FFFEFD]"
+              className="shadow1 shadow-2xl px-8 pt-[30px] pb-[50px] rounded-lg bg-[#FFFEFD]"
             >
-              <h4 className="text-4xl font-serif blue-light my-5 text-center">
+              <h4 className="text-4xl font-serif blue-medium my-4 text-center">
                 {service?.name}{" "}
               </h4>
-              <p className="text-slate-600 text-center">{service?.details}</p>
+              <p className="blue-medium text-center">{service?.details}</p>
             </div>
           );
         })}

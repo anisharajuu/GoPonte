@@ -8,11 +8,11 @@ const Main = () => {
   return (
     <div>
       <Navbar />
-     <div className="container mx-auto">
-     <Outlet />
-     </div>
+      <div className="container mx-auto">
+        <Outlet />
+      </div>
       <Footer />
-      <ToastContainer/>
+      <ToastContainer />
     </div>
   );
 };

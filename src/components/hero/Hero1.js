@@ -12,7 +12,7 @@ const Hero1 = () => {
         <div className="" data-aos="fade-left">
           <img
             src={image}
-            className=" w-[500px] h-[400px] rounded-lg shadow-2xl"
+            className=" w-[500px] h-[400px] rounded-lg shadow-2xl mb-5"
             alt=""
           />
         </div>
@@ -21,8 +21,8 @@ const Hero1 = () => {
           <p className="py-5 text-2xl font-semibold blue-dark underline">
             Find your next micro-internship here!
           </p>
-          <div className="shadow-2xl px-10 py-[10px] mt-5 rounded-xl bg-[#FFFEFD] max-w-screen-md mx-auto">
-            <p className="py-6 text-slate-600">
+          <div className="shadow-2xl px-10 py-[10px] mt-5 rounded-xl bg-white max-w-screen-md mx-auto">
+            <p className="py-6 blue-medium">
               {" "}
               <h1 className="text-2xl font-bold blue-medium mt-0 mb-3">
                 → What are micro-internships?{" "}

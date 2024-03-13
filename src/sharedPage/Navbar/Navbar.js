@@ -15,28 +15,28 @@ const Navbar = () => {
       <Link
         to="/"
         onClick={() => setShow(!show)}
-        className=" pr-[25px] focus:outline-none hover:bg-[#023e8a] transition duration-150 ease-in-out hover:text-white  rounded font-medium  px-5 py-2 "
+        className=" pr-[25px] focus:outline-none hover:bg-[#023e8a] transition duration-150 ease-in-out hover:text-white rounded font-medium  px-5 py-2 "
       >
         Overview
       </Link>
       <Link
         to="/about"
         onClick={() => setShow(!show)}
-        className=" pr-[25px] focus:outline-none hover:bg-[#023e8a] transition duration-150 ease-in-out hover:text-white  rounded font-medium  px-5 py-2 "
+        className=" pr-[25px] focus:outline-none hover:bg-[#023e8a] transition duration-150 ease-in-out hover:text-white rounded font-medium  px-5 py-2 "
       >
         About
       </Link>
       <Link
         to="/signup"
         onClick={() => setShow(!show)}
-        className=" pr-[25px] focus:outline-none hover:bg-[#023e8a] transition duration-150 ease-in-out hover:text-white  rounded font-medium  px-5 py-2 "
+        className=" pr-[25px] focus:outline-none hover:bg-[#023e8a] transition duration-150 ease-in-out hover:text-white rounded font-medium  px-5 py-2 "
       >
         Sign Up
       </Link>
       <Link
         to="/login"
         onClick={() => setShow(!show)}
-        className=" pr-[25px] focus:outline-none -gray-300 hover:bg-[#023e8a] transition duration-150 ease-in-out hover:text-white  rounded font-medium  px-5 py-2 "
+        className=" pr-[25px] focus:outline-none hover:bg-[#023e8a] transition duration-150 ease-in-out hover:text-white rounded font-medium  px-5 py-2 "
       >
         Login
       </Link>
@@ -44,10 +44,10 @@ const Navbar = () => {
   );
   return (
     <div>
-      <div className=" h-full text-slate-700">
+      <div className="h-full text-slate-700">
         {/* Code block starts */}
-        <nav className=" shadow xl:block hidden w-full bg-[#FFFEFD] z-40">
-          <div className="mx-auto container px-6 py-2 xl:py-0">
+        <nav className=" shadow xl:block hidden w-full bg-white z-40">
+          <div className="mx-auto container px-0 py-2 xl:py-0">
             <div className="flex items-center justify-between w-full">
               <img className="h-9 w-auto" src="./logo.png" />
               {/* lg ---start */}
@@ -60,7 +60,7 @@ const Navbar = () => {
               </div>
               {/* lg ----- items ----- */}
               <div className="flex">
-                <div className="hidden xl:flex items-center gap-2 md:mr-6 xl:mr-16 ">
+                <div className="hidden xl:flex items-center gap-2 md:mr-6 xl:mr-0 blue-darker">
                   {MenuItem}
                 </div>
                 {/* lg------end-section ------- */}
@@ -69,12 +69,12 @@ const Navbar = () => {
           </div>
         </nav>
         <nav className="">
-          <div className="py-4 px-6 w-full flex xl:hidden justify-between items-center z-40">
+          <div className="py-4 px-4 w-full flex xl:hidden justify-between items-center z-40">
             {/* sm-----menubar */}
-            <div className="flex items-center  p-2 ">
+            <div className="flex items-center  py-2 ">
               <div
                 id="menu"
-                className="text-gray-500 bg-[#00ae87]"
+                className="text-gray-500 bg-blue-dark"
                 onClick={() => setShow(!show)}
               >
                 {show ? (
@@ -121,20 +121,20 @@ const Navbar = () => {
               className=" opacity-50 w-full h-full"
               onClick={() => setShow(!show)}
             />
-            <div className="w-64 z-40 fixed overflow-y-auto top-0 shadow-2xl h-[100%] flex-col justify-between xl:hidden pb-4 transition duration-150 ease-in-out bg-slate-300  ">
+            <div className="w-64 z-40 fixed overflow-y-auto top-0 shadow-2xl h-[100%] flex-col justify-between xl:hidden pb-4 transition duration-150 ease-in-out bg-blue-medium">
               <div className="px-6 h-full">
                 <div className="flex flex-col justify-between h-full w-full  ">
                   <div>
                     <div className="mt-6 flex w-full items-center justify-between">
                       <div className="flex items-center justify-between w-full">
                         <div className="flex items-center">
-                          <p className="text-2xl font-bold fonts">
+                          <p className="text-2xl font-bold text-white font-serif">
                             Choose Menu
                           </p>
                         </div>
                         <div
                           id="cross"
-                          className="text-gray-800"
+                          className="text-white"
                           onClick={() => setShow(!show)}
                         >
                           <svg
@@ -158,15 +158,15 @@ const Navbar = () => {
                     </div>
                     {/* sm------nav---middle  Item */}
                     <ul className="f-m-m ">
-                      <li className="flex flex-col mt-[30px] gap-2 text-black  rounded-md ">
+                      <li className="flex flex-col mt-[30px] gap-2 text-white  rounded-md ">
                         {MenuItem}
-                        <Link
+                        {/* <Link
                           to="/contacts"
                           onClick={() => setShow(!show)}
                           className=" pr-[25px] focus:outline-none -gray-300  transition duration-150 ease-in-out hover:bg-grayhover:text-white -500 rounded font-medium  px-5 py-2 text-xs"
                         >
                           Contacts
-                        </Link>
+                        </Link> */}
                       </li>
                     </ul>
                   </div>
@@ -175,8 +175,8 @@ const Navbar = () => {
             </div>
           </div>
         </nav>
-        {/* Code block ends */}
       </div>
+      {/* Code block ends */}
     </div>
   );
 };
