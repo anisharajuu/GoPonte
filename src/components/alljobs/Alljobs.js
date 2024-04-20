@@ -51,7 +51,7 @@ const Alljobs = () => {
   return (
     <div
       data-aos="zoom-in"
-      className="py-12 bg-[#0077b6] rounded hover:shadow-xl my-5 px-5 text-white"
+      className="py-12 bg-blue-medium rounded hover:shadow-xl my-5 px-5 text-white"
     >
       <h1 className="text-5xl text-center font-bold font-serif mb-2">
         Join our waitlist
@@ -103,7 +103,7 @@ const Alljobs = () => {
               Please enter a valid email.
             </div>
           )}
-          <button className="bg-blue-dark h-12 text-slate-100 px-5 rounded-md">
+          <button className="bg-blue-dark h-12 text-white font-bold px-5 rounded-md">
             Submit{" "}
           </button>
         </form>

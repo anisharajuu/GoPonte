@@ -19,34 +19,34 @@ const ServiceType = () => {
     },
   ];
   return (
-    <div className="mt-10 p-10 border-blue rounded">
+    <div className="pt-10">
       <header>
-        <h2 className="blue-dark text-center text-[48px] font-bold font-serif">
+        {/* <h2 className="blue-dark text-left text-[48px] font-bold font-serif">
           {" "}
           What We Offer{" "}
-        </h2>
-        <p className="text-center blue-dark mb-10 mt-3 text-2xl font-semibold">
+        </h2> */}
+        <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 ">
+          {services?.map((service) => {
+            return (
+              <div
+                data-aos="flip-left"
+                className="shadow1 shadow-2xl px-8 pt-[30px] pb-[50px] rounded-lg bg-[#FFFEFD]"
+              >
+                <h4 className="text-4xl font-serif blue-medium my-4 text-center">
+                  {service?.name}{" "}
+                </h4>
+                <p className="blue-medium text-center">{service?.details}</p>
+              </div>
+            );
+          })}
+        </div>
+        <p className="text-left blue-dark px-10 py-12 mt-12 border-blue-medium text-3xl rounded font-serif font-semibold">
           {" "}
           At Ponte, we stand out by providing unparalleled services to our
           clients. Our commitment revolves around delivering trustworthy and
-          superior-quality microinternships.{" "}
+          superior-quality micro-internships.{" "}
         </p>
       </header>
-      <div className="mt-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 ">
-        {services?.map((service) => {
-          return (
-            <div
-              data-aos="flip-left"
-              className="shadow1 shadow-2xl px-8 pt-[30px] pb-[50px] rounded-lg bg-[#FFFEFD]"
-            >
-              <h4 className="text-4xl font-serif blue-medium my-4 text-center">
-                {service?.name}{" "}
-              </h4>
-              <p className="blue-medium text-center">{service?.details}</p>
-            </div>
-          );
-        })}
-      </div>
     </div>
   );
 };

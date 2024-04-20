@@ -19,7 +19,7 @@ const QuickStart = () => {
     },
   ];
   return (
-    <div className="mt-10 border-blue rounded p-10">
+    <div className="mt-10 border-blue-medium rounded p-10">
       <header>
         <h2 className="blue-dark text-center text-[48px] font-bold font-serif">
           {" "}

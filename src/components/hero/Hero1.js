@@ -17,8 +17,10 @@ const Hero1 = () => {
           />
         </div>
         <div data-aos="fade-right" className="lg:mt-[100px]">
-          <h1 className="text-6xl font-bold blue-dark mt-3">Ponte</h1>
-          <p className="py-5 text-2xl font-semibold blue-dark underline">
+          <h1 className="text-7xl font-bold font-serif blue-dark mt-3">
+            Ponte
+          </h1>
+          <p className="py-4 text-2xl font-semibold blue-dark underline">
             Find your next micro-internship here!
           </p>
           <div className="shadow-2xl px-10 py-[10px] mt-5 rounded-xl bg-white max-w-screen-md mx-auto">

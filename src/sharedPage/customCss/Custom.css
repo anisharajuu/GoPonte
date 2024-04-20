@@ -73,8 +73,12 @@
   border: 2px #90e0ef solid;
 }
 
+.border-blue-medium {
+  border: 2px #0077b6 solid;
+}
+
 .border-blue-dark {
-  border: 2px #48cae4 solid;
+  border: 2px #023e8a solid;
 }
 .shadow1 {
   border-radius: 22px;
