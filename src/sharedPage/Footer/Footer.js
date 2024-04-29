@@ -12,12 +12,12 @@ const Footer = () => {
           </Link>
           <a className="link link-hover">Find Job</a>
           <a className="link link-hover">Find Internship </a>
-          <a className="link link-hover">User Support</a>
+          <Link to="/UserSupport" className="link link-hover">User Support</Link>
         </div>
         <div>
           <span className="footer-title">Company</span>
-          <a className="link link-hover">About us</a>
-          <a className="link link-hover">Contact</a>
+          <Link to="/about" className="link link-hover">About us</Link>
+          <Link to="/Contacts" className="link link-hover">Contact</Link>
           <a className="link link-hover">Jobs</a>
           <a className="link link-hover">Press kit</a>
         </div>
@@ -48,28 +48,28 @@ const Footer = () => {
           </p>
         </div>
         <div className="md:place-self-center md:justify-self-end">
-        <div className="md:place-self-center md:justify-self-end">
-        <div className="md:place-self-center md:justify-self-end">
-  <div className="grid grid-flow-col gap-4 items-center">
-    <a href="https://www.linkedin.com/company/99342044/admin/feed/posts/" target="_blank" rel="noopener noreferrer">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="#0077B5" // LinkedIn's official blue color
-        className="fill-current text-blue-600" // Adjust color here
-      >
-        <path d="M20.25 0h-16.5c-1.242 0-2.25 1.008-2.25 2.25v19.5c0 1.242 1.008 2.25 2.25 2.25h16.5c1.242 0 2.25-1.008 2.25-2.25v-19.5c0-1.242-1.008-2.25-2.25-2.25zm-4.125 19.875h-2.25v-7.125h2.25v7.125zm-1.125-8.625c-1.242 0-2.25-.99-2.25-2.217 0-1.228 1.008-2.217 2.25-2.217s2.25.99 2.25 2.217c0 1.227-1.008 2.217-2.25 2.217zm5.625 8.625h-2.25v-4.5c0-1.242-.99-2.25-2.217-2.25s-2.217.99-2.217 2.25v4.5h-2.25v-7.125h2.25v1.062c.75-1.143 2.25-1.95 3.975-1.95 2.856 0 5.175 2.295 5.175 5.25v7.763z"></path>
-      </svg>
-    </a>
-    <span className="text-gray-700 text-sm font-semibold">Follow us on LinkedIn</span>
-  </div>
-</div>
+          <div className="md:place-self-center md:justify-self-end">
+            <div className="md:place-self-center md:justify-self-end">
+              <div className="grid grid-flow-col gap-4 items-center">
+                <a href="https://www.linkedin.com/company/99342044/admin/feed/posts/" target="_blank" rel="noopener noreferrer">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="#0077B5" // LinkedIn's official blue color
+                    className="fill-current text-blue-600" // Adjust color here
+                  >
+                    <path d="M20.25 0h-16.5c-1.242 0-2.25 1.008-2.25 2.25v19.5c0 1.242 1.008 2.25 2.25 2.25h16.5c1.242 0 2.25-1.008 2.25-2.25v-19.5c0-1.242-1.008-2.25-2.25-2.25zm-4.125 19.875h-2.25v-7.125h2.25v7.125zm-1.125-8.625c-1.242 0-2.25-.99-2.25-2.217 0-1.228 1.008-2.217 2.25-2.217s2.25.99 2.25 2.217c0 1.227-1.008 2.217-2.25 2.217zm5.625 8.625h-2.25v-4.5c0-1.242-.99-2.25-2.217-2.25s-2.217.99-2.217 2.25v4.5h-2.25v-7.125h2.25v1.062c.75-1.143 2.25-1.95 3.975-1.95 2.856 0 5.175 2.295 5.175 5.25v7.763z"></path>
+                  </svg>
+                </a>
+                <span className="text-gray-700 text-sm font-semibold">Follow us on LinkedIn</span>
+              </div>
+            </div>
 
-</div>
+          </div>
 
-</div>
+        </div>
 
       </footer>
     </div>

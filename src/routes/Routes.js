@@ -1,13 +1,15 @@
 import { createBrowserRouter } from "react-router-dom";
 import DetailsJob from "../components/alljobs/DetailsJob";
-import Contacts from "../components/contacts/Contacts";
+import Contacts from "../components/resources/BusinessComponents/BusinessContact.js";
 import Home from "../components/home/Home";
 import Login from "../components/login/Login";
 import Signup from "../components/Signup/Signup";
 import BusinessSignup from "../components/Signup/BusinessSignup";
 import Resources from "../components/resources/Resources";
 import CVReview from "../components/FooterComponents/CVReview";
-import About from "../components/about/About.js";
+import About from "../components/about/About.js"; 
+import UserSupport from "../components/support/UserSupport.js";
+import FAQ from "../components/support/FAQ.js";
 import Main from "../layout/Main";
 
 const routes = createBrowserRouter([
@@ -42,7 +44,7 @@ const routes = createBrowserRouter([
       },
 
       {
-        path: "/job/:details",
+        path: "/DetailsJob",
         element: <DetailsJob />,
       },
       {
@@ -56,6 +58,14 @@ const routes = createBrowserRouter([
       {
         path: "/userPortal",
         element: <userPortal />,
+      },
+      {
+        path: "/UserSupport",
+        element: <UserSupport />,
+      },
+      {
+        path: "/FAQ",
+        element: <FAQ />,
       },
     ],
   },
