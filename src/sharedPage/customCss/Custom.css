@@ -1,7 +1,16 @@
 .btn1 {
-  background-color: #15a082;
+  background-color: #0077b6;
   border-radius: 4px;
   color: aliceblue;
+}
+
+.footer-title {
+  color: #0077b6;
+  opacity: 1;
+}
+
+.link {
+  color: #0077b6;
 }
 
 .btn1:hover {
@@ -19,10 +28,58 @@
   color: #15a082;
 }
 
+.label-text,
+.label,
+.label-text-alt {
+  font-size: 16px;
+  color: #023e8a;
+  /* color: #0077b6; */
+}
+
 .fonts {
   color: #087f65;
 }
 
+.blue-light {
+  color: #0096c7;
+}
+
+.blue-medium {
+  color: #0077b6;
+}
+
+.blue-dark {
+  color: #023e8a;
+}
+
+.blue-darker {
+  color: #03045e;
+}
+
+.bg-blue-light {
+  background-color: #90e0ef;
+  /* background-color: #ade8f4; */
+}
+
+.bg-blue-medium {
+  background-color: #0077b6;
+}
+
+.bg-blue-dark {
+  background-color: #023e8a;
+}
+
+.border-blue {
+  border: 2px #90e0ef solid;
+}
+
+.border-blue-medium {
+  border: 2px #0077b6 solid;
+}
+
+.border-blue-dark {
+  border: 2px #023e8a solid;
+}
 .shadow1 {
   border-radius: 22px;
   /* background: #e0e0e0;
@@ -32,7 +89,7 @@
 .shadow1:hover {
   border-radius: 16px;
   background: #e0e0e0;
-  box-shadow: 5px 5px 0px #087f65, -5px -5px 0px #ffffff;
+  box-shadow: 5px 5px 0px #0096c7, -5px -5px 0px #ffffff;
 }
 .jobs:hover .apply {
   background-color: #087f65;

@@ -7,12 +7,12 @@ import rocket from "../../assets/rocket.png";
 const History = () => {
   return (
     <div className="py-[10px] mt-[40px]">
-      <h1 className="text-[48px] text-center mb-[10px] fonts font-bold font-serif">
+      <h1 className="text-[48px] text-center mb-3 blue-medium font-bold font-serif">
         History
       </h1>
 
-      <div className="py-[10px] grid grid-cols-3 gap-[30px]">
-        <div className="mb-10 bg-[#FFFFFF] rounded-lg shadow-2xl py-[30px] px-[40px] flex flex-col items-center">
+      <div className="py-[10px] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[5px] md:gap-[30px]">
+        <div className="mb-5 md:mb-10 bg-[#FFFFFF] rounded-lg shadow-2xl py-[30px] px-[40px] flex flex-col items-center">
           <div className="flex-none w-full">
             <h2 className="text-center mb-[5px] font-bold text-2xl font-serif text-slate-600">
               The Beginning
@@ -28,12 +28,12 @@ const History = () => {
               ></img>
             </div>
             <p className="col-span-2 text-slate-600 text-l items-center my-auto py-1">
-              Ponte was founded by ex-Google and ex-Mastercard employees after navigating the
-              complexities and issues around internships
+              Ponte was founded by ex-Google and ex-Mastercard employees after
+              navigating the complexities and issues around internships
             </p>
           </div>
         </div>
-        <div className="mb-10 bg-[#FFFFFF] rounded-lg shadow-2xl py-[30px] px-[40px] flex flex-col">
+        <div className="mb-5 md:mb-10 bg-[#FFFFFF] rounded-lg shadow-2xl py-[30px] px-[40px] flex flex-col">
           <div className="flex-none w-full">
             <h2 className="text-center mb-[5px] font-bold text-2xl font-serif text-slate-600">
               Gaining Momentum
@@ -49,12 +49,12 @@ const History = () => {
             </div>
 
             <p className="col-span-2 text-slate-600 text-l items-center my-autos py-1">
-              The company captured the attention of investors who
-              helped fund the platform as well as participating in selective accelerators
+              The company captured the attention of investors who helped fund
+              the platform as well as participating in selective accelerators
             </p>
           </div>
         </div>
-        <div className="mb-10 bg-[#FFFFFF] rounded-lg shadow-2xl py-[30px] px-[40px] flex flex-col items-center">
+        <div className="mb-5 md:mb-10 bg-[#FFFFFF] rounded-lg shadow-2xl py-[30px] px-[40px] flex flex-col items-center">
           <div className="flex-none w-full">
             <h2 className="text-center mb-[5px] font-bold text-2xl font-serif text-slate-600">
               The Launch
@@ -70,28 +70,27 @@ const History = () => {
             </div>
 
             <p className="col-span-2 text-slate-600 text-l ml-0 items-center">
-              After months of planning and work behind the scenes,
-              Ponte officially launched in February 2024
+              After months of planning and work behind the scenes, Ponte
+              officially launched in February 2024
             </p>
           </div>
         </div>
       </div>
 
-      <h1 className="text-[48px] text-center mb-[20px] mt-[0px] fonts font-bold font-serif">
-
+      <h1 className="text-[48px] text-center mb-[20px] mt-[30px] md:mt-[10px] blue-medium font-bold font-serif">
         Achievements
       </h1>
 
-      <div className="bg-[#FFFFFF] rounded-lg shadow-2xl py-[50px] px-[140px]">
+      <div className="bg-[#FFFFFF] rounded-lg shadow-2xl p-10 lg:py-10 lg:px-20">
         {/* <h1 className=" text-[38px] text-center mb-[10px] fonts font-bold font-serif">
           Achievements
         </h1> */}
-        <div className="grid grid-cols-4 md:grid-cols-4 lg:grid-cols-4">
+        <div className="grid grid-cols-1 md:grid-cols-4">
           <img
             src={award}
-            className="h-[180px] w-[180px] col-span-1 rounded-full object-cover"
+            className="h-[120px] w-[120px] md:h-[150px] md:w-[150px] col-span-1 rounded-full object-cover mx-auto mb-5 md:mb-0"
           ></img>
-          <div className="col-span-3 pl-[20px]">
+          <div className="col-span-3 px-1 md:pl-[20px]">
             <h2 className="text-slate-600 text-2xl font-serif text-center font-bold">
               People's Choice Award
             </h2>

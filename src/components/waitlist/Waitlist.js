@@ -43,7 +43,7 @@ const Waitlist = () => {
   return (
     <div
       data-aos="zoom-in"
-      className="py-12 bg-[#087f65] rounded hover:shadow-xl my-5 text-black"
+      className="py-12 bg-[#0077b6] rounded hover:shadow-xl my-5 text-black"
     >
       <h1 className="text-5xl text-center font-bold font-serif mb-2">
         Join our waitlist

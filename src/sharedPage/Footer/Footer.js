@@ -1,10 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "../customCss/Custom.css";
 
 const Footer = () => {
   return (
     <div className="mt-10">
-      <footer className="footer p-10 bg-base-300 text-base-content">
+      <footer className="footer p-10 bg-[#FFFFFF] text-base-content">
         <div>
           <span className="footer-title"> Our Services</span>
           <Link to="/CV-review" className="link link-hover">
@@ -28,11 +29,11 @@ const Footer = () => {
           <a className="link link-hover">Cookie policy</a>
         </div>
       </footer>
-      <footer className="footer px-10 py-4 border-t bg-base-200 text-base-content border-base-300">
-        <div className="items-center grid-flow-col text-[#00ae87] font-semibold">
+      <footer className="footer px-10 py-4 border-t bg-base-300 text-base-content border-base-300">
+        <div className="items-center grid-flow-col blue-dark font-semibold">
           <svg
             width="24"
-            color="black"
+            color="#023e8a;"
             height="24"
             viewBox="0 0 24 24"
             xmlns="http://www.w3.org/2000/svg"
@@ -51,7 +52,12 @@ const Footer = () => {
           <div className="md:place-self-center md:justify-self-end">
             <div className="md:place-self-center md:justify-self-end">
               <div className="grid grid-flow-col gap-4 items-center">
-                <a href="https://www.linkedin.com/company/99342044/admin/feed/posts/" target="_blank" rel="noopener noreferrer">
+                <a
+                  href="https://www.linkedin.com/company/99342044/admin/feed/posts/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -63,14 +69,13 @@ const Footer = () => {
                     <path d="M20.25 0h-16.5c-1.242 0-2.25 1.008-2.25 2.25v19.5c0 1.242 1.008 2.25 2.25 2.25h16.5c1.242 0 2.25-1.008 2.25-2.25v-19.5c0-1.242-1.008-2.25-2.25-2.25zm-4.125 19.875h-2.25v-7.125h2.25v7.125zm-1.125-8.625c-1.242 0-2.25-.99-2.25-2.217 0-1.228 1.008-2.217 2.25-2.217s2.25.99 2.25 2.217c0 1.227-1.008 2.217-2.25 2.217zm5.625 8.625h-2.25v-4.5c0-1.242-.99-2.25-2.217-2.25s-2.217.99-2.217 2.25v4.5h-2.25v-7.125h2.25v1.062c.75-1.143 2.25-1.95 3.975-1.95 2.856 0 5.175 2.295 5.175 5.25v7.763z"></path>
                   </svg>
                 </a>
-                <span className="text-gray-700 text-sm font-semibold">Follow us on LinkedIn</span>
+                <span className="blue-dark text-sm font-semibold">
+                  Follow us on LinkedIn
+                </span>
               </div>
             </div>
-
           </div>
-
         </div>
-
       </footer>
     </div>
   );
