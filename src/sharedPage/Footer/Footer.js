@@ -13,12 +13,12 @@ const Footer = () => {
           </Link>
           <a className="link link-hover">Find Job</a>
           <a className="link link-hover">Find Internship </a>
-          <a className="link link-hover">User Support</a>
+          <Link to="/UserSupport" className="link link-hover">User Support</Link>
         </div>
         <div>
           <span className="footer-title">Company</span>
-          <a className="link link-hover">About us</a>
-          <a className="link link-hover">Contact</a>
+          <Link to="/about" className="link link-hover">About us</Link>
+          <Link to="/Contacts" className="link link-hover">Contact</Link>
           <a className="link link-hover">Jobs</a>
           <a className="link link-hover">Press kit</a>
         </div>
@@ -57,6 +57,7 @@ const Footer = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
+
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
