@@ -14,20 +14,23 @@ app.use(cors());
 
 // connect to mysql database --> tested that connection works
 // make sure to send credentials to .env
-const connection = mysql.createConnection({
+const pool = mysql.createPool({
+  connectionLimit: 10,
   host: "198.12.246.179",
   user: process.env.DB_USER,
   password: process.env.DB_PASS,
   database: "Ponte",
 });
 
-connection.connect((err) => {
+pool.on('connection', (connection) => {
+  /*
   if (err) {
     console.error("Error connecting to MySQL: " + err.stack);
     return;
   }
-
+*/
   console.log("Connected to MySQL as ID " + connection.threadId);
+  // connection.release();
 });
 
 process.on("unhandledRejection", (reason, promise) => {
@@ -44,7 +47,7 @@ app.post("/studentLogIn", function (req, res) {
     password,
   };
 
-  connection.query(
+  pool.query(
     "SELECT * FROM students WHERE email COLLATE latin1_general_cs = ? AND password COLLATE latin1_general_cs = ?",
     [userData.email, userData.password],
     function (err, result) {
@@ -75,7 +78,7 @@ app.post("/studentSignUp", function (req, res) {
     password,
   };
 
-  connection.query(
+  pool.query(
     "INSERT INTO students SET ?",
     userData,
     function (err, result) {
@@ -99,7 +102,7 @@ app.post("/businessSignUp", function (req, res) {
     password,
   };
 
-  connection.query(
+  pool.query(
     "INSERT INTO Businesses SET ?",
     userData,
     function (err, result) {
@@ -122,7 +125,7 @@ app.get("/activeJobs", (req, res) => {
     LIMIT 100;
   `;
 
-  connection.query(query, (err, results) => {
+  pool.query(query, (err, results) => {
     if (err) {
       console.error("Error executing the query:", err);
       res.status(500).send("Internal Server Error");
@@ -143,7 +146,7 @@ app.get("/activeJobs/:jobId", (req, res) => {
     WHERE JobPostings.job_id = ?;
   `;
 
-  connection.query(query, [jobId], (err, results) => {
+  pool.query(query, [jobId], (err, results) => {
     if (err) {
       console.error("Error executing the query:", err);
       res.status(500).send("Internal Server Error");
@@ -176,7 +179,7 @@ app.post("/apply", function (req, res) {
     experience,
   };
 
-  connection.query(
+  pool.query(
     "INSERT INTO Applications SET ?",
     userData,
     function (err, result) {
@@ -202,7 +205,7 @@ app.post("/addJob", (req, res) => {
   console.log("Business value:", busName); // Log the business value
   console.log("Start Date:", startDate);
 
-  connection.query(
+  pool.query(
     "SELECT BusId FROM Businesses WHERE BusName = ?",
     [busName],
     (error, results) => {
@@ -231,7 +234,7 @@ app.post("/addJob", (req, res) => {
       //   duration_fl,
       // };
 
-      connection.query(
+      pool.query(
         "INSERT INTO JobPostings (job_title, business, startDate, job_desc, Duration) VALUES (?, ?, ?, ?, ?)",
         [jobTitle, businessId, startDate, jobDesc, duration_fl],
         (error, result) => {
@@ -251,7 +254,7 @@ app.post("/addJob", (req, res) => {
 app.get("/jobPostings", (req, res) => {
   const query =
     "SELECT jp.*, b.BusName FROM JobPostings jp JOIN Businesses b ON jp.business = b.BusId;";
-  connection.query(query, (error, results) => {
+  pool.query(query, (error, results) => {
     if (error) {
       console.error("Error fetching job postings:", error);
       res.status(500).json({ message: "Internal server error" });

@@ -11,6 +11,7 @@ import About from "../components/about/About.js";
 import UserSupport from "../components/support/UserSupport.js";
 import FAQ from "../components/support/FAQ.js";
 import Main from "../layout/Main";
+import UserPortal from "../components/users/userPortal.js";
 
 const routes = createBrowserRouter([
   {
@@ -56,10 +57,6 @@ const routes = createBrowserRouter([
         element: <CVReview />,
       },
       {
-        path: "/userPortal",
-        element: <userPortal />,
-      },
-      {
         path: "/UserSupport",
         element: <UserSupport />,
       },
@@ -68,6 +65,10 @@ const routes = createBrowserRouter([
         element: <FAQ />,
       },
     ],
+  },
+  {
+    path: "/userPortal",
+    element: <UserPortal />,
   },
 ]);
 

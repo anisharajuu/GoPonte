@@ -40,10 +40,10 @@ const Login = () => {
         console.log("Login successful:");
         navigate("/userPortal");
       } else {
-        console.error("Error logging up:", response.status);
+        console.error("Error logging in:", response.status);
       }
     } catch (error) {
-      console.error("Error logging up:", error.message);
+      console.error("Error logging in:", error.message);
     }
   };
 
@@ -122,7 +122,7 @@ const Login = () => {
             </div>
             <div className="form-control mt-6">
               <button className="btn1 py-3 text-xl" onClick={handleLogin}>
-                Sign Up
+                Log In
               </button>
             </div>
           </div>
