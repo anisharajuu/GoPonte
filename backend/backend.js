@@ -2,6 +2,9 @@ import express from "express";
 import mysql from "mysql";
 import dotenv from "dotenv";
 import cors from "cors";
+import multer from 'multer';
+import fs from 'fs';
+
 // import bcrypt from "bcrypt";
 
 dotenv.config();
@@ -37,6 +40,27 @@ process.on("unhandledRejection", (reason, promise) => {
   console.error("Unhandled Rejection at:", promise, "reason:", reason);
   // Handle the error, log it, or exit the process if necessary
 });
+
+
+
+const uploadDir = './uploads';
+if (!fs.existsSync(uploadDir)) {
+    fs.mkdirSync(uploadDir, { recursive: true });
+}
+
+const storage = multer.diskStorage({
+    destination: function(req, file, cb) {
+        cb(null, uploadDir)
+    },
+    filename: function(req, file, cb) {
+        cb(null, file.fieldname + '-' + Date.now() + '.pdf')
+    }
+});
+
+const upload = multer({ storage: storage });
+
+
+
 
 
 app.post("/studentLogIn", function (req, res) {
@@ -119,7 +143,7 @@ app.post("/businessSignUp", function (req, res) {
 
 app.get("/activeJobs", (req, res) => {
   const query = `
-    SELECT JobPostings.job_title, Businesses.BusName, JobPostings.startDate, JobPostings.Duration, LEFT(JobPostings.job_desc, 100) as short_desc
+    SELECT JobPostings.job_id, JobPostings.job_title, Businesses.BusName, JobPostings.startDate, JobPostings.Duration, LEFT(JobPostings.job_desc, 100) as short_desc
     FROM JobPostings
     JOIN Businesses ON JobPostings.business = Businesses.BusId
     LIMIT 100;
@@ -160,7 +184,7 @@ app.get("/activeJobs/:jobId", (req, res) => {
     }
   });
 });
-
+/*
 app.post("/apply", function (req, res) {
   const { name, email, address, education, experience } = req.body;
 
@@ -178,9 +202,27 @@ app.post("/apply", function (req, res) {
     education,
     experience,
   };
+*/
+app.post("/apply", upload.single('resume'), function (req, res) {
+  const { name, gradYear, university, experience, jobId, userId } = req.body;
+  const resumePath = req.file.path; 
+  
+  if (!name || !gradYear || !university || !experience || !jobId || !userId || !resumePath) {
+      return res.status(400).json({ error: "Incomplete data provided." });
+  }
+
+  const userData = {
+      name,
+      gradYear,
+      university,
+      experience,
+      jobId,
+      userId,
+      resume: resumePath
+  };
 
   pool.query(
-    "INSERT INTO Applications SET ?",
+    "INSERT INTO applications SET ?",
     userData,
     function (err, result) {
       if (err) {

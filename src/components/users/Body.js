@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import ActiveJobs from "./ActiveJobs";
+import SavedJobs from "./SavedJobs";
+import Applications from "./Applications";
 
 const Body = () => {
   const [activeTab, setActiveTab] = useState("tab1");
@@ -13,11 +15,11 @@ const Body = () => {
       case "tab1":
         return <ActiveJobs />
       case "tab2":
-        return <div>Applications</div>
+        return <SavedJobs />
       case "tab3":
-        return <div>In Progress</div>
+        return <Applications />
       case "tab4":
-        return <div>Completed</div>
+        return <div>Personal Info</div>
       case "tab5":
         return <div>Messages</div>
       default:
@@ -47,7 +49,7 @@ const Body = () => {
             onClick={() => handleTabClick("tab2")}
             style={{ color: "black" }}
           >
-            Applications
+            Saved Jobs
           </div>
           <div
             className={`text-lg tab tab-bordered ${
@@ -57,7 +59,7 @@ const Body = () => {
             onClick={() => handleTabClick("tab3")}
             style={{ color: "black" }}
           >
-            In Progress
+            Applications
           </div>
           <div
             className={`text-lg tab tab-bordered ${
@@ -67,7 +69,7 @@ const Body = () => {
             onClick={() => handleTabClick("tab4")}
             style={{ color: "black" }}
           >
-            Completed
+            Personal Info
           </div>
           <div
             className={`text-lg tab tab-bordered ${

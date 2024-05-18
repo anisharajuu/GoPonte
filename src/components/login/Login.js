@@ -2,13 +2,14 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "../../sharedPage/customCss/Custom.css";
 import loginImg from "../../assets/login.png";
+import { useUser } from '../../UserContext';
 
 const Login = () => {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
-
+  const { setUser } = useUser();
   const [showPassword, setShowPassword] = useState(false);
   const [showError, setShowError] = useState(false);
   const navigate = useNavigate();
@@ -37,6 +38,8 @@ const Login = () => {
       });
 
       if (response.status === 200) {
+        const userData = await response.json();
+        setUser(userData);
         console.log("Login successful:");
         navigate("/userPortal");
       } else {
