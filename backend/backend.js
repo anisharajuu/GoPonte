@@ -117,6 +117,32 @@ app.post("/studentSignUp", function (req, res) {
   );
 });
 
+
+app.get("/fetchStudent/:studentId", async (req, res) => {
+  const { studentId } = req.params;
+
+  if (!studentId) {
+      return res.status(400).json({ error: "Missing student ID" });
+  }
+
+  const query = "SELECT * FROM students WHERE id = ?";
+
+  pool.query(query, [studentId], (err, results) => {
+      if (err) {
+          console.error("Error querying the database:", err);
+          return res.status(500).json({ error: "Internal Server Error", details: err.message });
+      }
+      if (results.length === 0) {
+          return res.status(404).json({ message: "Student not found" });
+      } else {
+          console.log("Student data retrieved successfully");
+          return res.status(200).json(results[0]); // assuming only one result should be returned
+      }
+  });
+});
+
+
+
 app.post("/businessSignUp", function (req, res) {
   const { name, email, password } = req.body;
 
@@ -184,29 +210,12 @@ app.get("/activeJobs/:jobId", (req, res) => {
     }
   });
 });
-/*
-app.post("/apply", function (req, res) {
-  const { name, email, address, education, experience } = req.body;
 
-  if (!name || !email || !address || !education || !experience) {
-    return res.status(400).json({ error: "Incomplete data provided." });
-  }
 
-  const userData = {
-    fullName: name,
-    email,
-    street: address.street,
-    city: address.city,
-    state: address.state,
-    zip: address.zip,
-    education,
-    experience,
-  };
-*/
 app.post("/apply", upload.single('resume'), function (req, res) {
   const { name, gradYear, university, experience, jobId, userId } = req.body;
   const resumePath = req.file.path; 
-  
+
   if (!name || !gradYear || !university || !experience || !jobId || !userId || !resumePath) {
       return res.status(400).json({ error: "Incomplete data provided." });
   }
@@ -232,11 +241,92 @@ app.post("/apply", upload.single('resume'), function (req, res) {
         console.log("1 record inserted");
         return res
           .status(201)
-          .json({ message: "Record inserted successfully" });
+          .json({ message: "Record inserted successfully", applicationId: result.insertId });
       }
     }
   );
 });
+
+
+app.get("/studentApplications/:userId", function (req, res) {
+  const userId = req.params.userId;
+
+  if (!userId) {
+      return res.status(400).json({ error: "Missing userId parameter" });
+  }
+
+  const query = `
+      SELECT a.*, j.job_title, j.job_desc, j.startDate, j.Duration, b.BusName
+      FROM applications a
+      JOIN JobPostings j ON a.jobId = j.job_id
+      JOIN Businesses b ON j.business = b.BusId
+      WHERE a.userId = ?`;
+
+  pool.query(query, [userId], function (err, results) {
+      if (err) {
+          console.error("Error querying the database:", err);
+          return res.status(500).json({ error: "Internal Server Error" });
+      }
+      if (results.length === 0) {
+          // No applications found for the user
+          return res.status(404).json({ message: "No applications found for the user" });
+      } else {
+          //console.log("Applications retrieved successfully");
+          return res.status(200).json(results);
+      }
+  });
+});
+
+
+app.post("/updateLastId", function (req, res) {
+  const { studentId, lastId } = req.body;
+
+  if (!studentId || !lastId) {
+      return res.status(400).json({ error: "Missing studentId or lastId" });
+  }
+
+  const query = "UPDATE students SET lastId = ? WHERE id = ?";
+
+  pool.query(query, [lastId, studentId], function (err, result) {
+      if (err) {
+          console.error("Error updating the database:", err);
+          return res.status(500).json({ error: "Internal Server Error" });
+      }
+      if (result.affectedRows === 0) {
+          // No rows were updated, which means no student was found with the provided ID
+          return res.status(404).json({ error: "Student not found" });
+      } else {
+          console.log("Student lastId updated successfully");
+          return res.status(200).json({ message: "Student lastId updated successfully" });
+      }
+  });
+});
+
+app.get("/getApplicationById/:applicationId", function (req, res) {
+  const application_id = req.params.applicationId;
+
+  if (!application_id) {
+      return res.status(400).json({ error: "Missing application_id parameter" });
+  }
+
+  const query = "SELECT * FROM applications WHERE application_id = ?";
+
+  pool.query(query, [application_id], function (err, results) {
+      if (err) {
+          console.error("Error querying the database:", err);
+          return res.status(500).json({ error: "Internal Server Error", details: err.message });
+      }
+      if (results.length === 0) {
+          // No application found with the given ID
+          return res.status(404).json({ message: "Application not found" });
+      } else {
+          console.log("Application retrieved successfully");
+          return res.status(200).json(results[0]); // Send back the first result
+      }
+  });
+});
+
+
 
 app.get("/job/:id");
 

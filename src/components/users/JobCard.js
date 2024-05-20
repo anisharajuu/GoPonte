@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { useUser } from '../../UserContext';
+import { useNavigate } from "react-router-dom";
 
 const JobCard = ({ job }) => {
   const { user } = useUser();
-  // street city state zip
+  const navigate = useNavigate();
+  if (!user) {navigate("/");}
   const [formData, setFormData] = useState({
     name: '',
     gradYear: '',
@@ -18,6 +20,9 @@ const JobCard = ({ job }) => {
   const [toggleApply, setToggleApply] = useState(false);
   const [responce, setResponse] = useState("");
   const [student, setStudent] = useState("");
+  const [lastApplication, setLastApplication] = useState("");
+  const [applied, setApplied] = useState(false);
+  const [savedDefault, setSavedDefault] = useState(false);
 
   const handleChange = (e) => {
     if (e.target.name === "resume") {
@@ -27,7 +32,7 @@ const JobCard = ({ job }) => {
     }
   };
 
-
+/*
   const saveJob  = async (e) => {
     e.preventDefault();
     try {
@@ -49,7 +54,7 @@ const JobCard = ({ job }) => {
       console.error("Error saving job:", error);
     }
   }
-
+*/
 
   const apply = async (e) => {
     e.preventDefault();
@@ -67,7 +72,7 @@ const JobCard = ({ job }) => {
       console.log(`${key}: ${value}`);
     }
     */
-   console.log(job);
+   //console.log(job);
     try {
         const response = await fetch("http://localhost:8000/apply", {
             method: "POST",
@@ -78,6 +83,9 @@ const JobCard = ({ job }) => {
             console.log("Successfully applied");
             setToggleApply(false); 
             setResponse("Application Submitted!"); 
+            const data = await response.json();
+            setLastApplication(data.applicationId); 
+            setApplied(true);
         } else {
             console.error("Failed to apply to job posting:", response.status);
             setResponse("Failed to submit application."); 
@@ -89,43 +97,70 @@ const JobCard = ({ job }) => {
 
 
 
-  const saveResponces  = async (e) => {
-    e.preventDefault();
+
+  const fetchProfile = async () => {
     try {
-      const response = await fetch("http://localhost:8000/updateStudent", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
-      if (response.ok) {
-        console.log("Succesfully saved responces");
-        setToggleApply(false);
-        setResponse("Application Saved!")
-      } else {
-        console.error("Failed to save responces:", response.status);
-      }
+        const response = await fetch(`http://localhost:8000/fetchStudent/${user.id}`);
+        if (response.ok) {
+            const data = await response.json();
+            return data.lastId;
+        } else {
+            console.error("Failed to fetch student:", response.status);
+        }
     } catch (error) {
-      console.error("Error saving responces:", error);
+        console.error("Error fetching student:", error);
     }
   }
 
-  const fetchLast  = async (e) => {
+
+  const fetchApplication = async (e) => {
     e.preventDefault();
-    try {
-      const response = await fetch("http://localhost:8000/fetchStudent");
-      if (response.ok) {
-        console.log("Fetched last application");
-        const data = await response.json();
-        setStudent(data); 
-      } else {
-        console.error("Failed to fetch responces:", response.status);
-      }
-    } catch (error) {
-      console.error("Error fetching responces:", error);
+    const applicationId = await fetchProfile();
+    if (!applicationId){
+      console.log("Error: student not fetched");
+      return;
     }
-  }
+    console.log(applicationId);
+    const response = await fetch(`http://localhost:8000/getApplicationById/${applicationId}`);
+    if (response.ok) {
+        const data = await response.json();
+        //console.log(data);
+        setFormData(prevFormData => ({
+          ...prevFormData,
+          name: data.name,
+          gradYear: data.gradYear,
+          university: data.university,
+          experience: data.experience}));
+        setSavedDefault(true);
+    } else {
+        console.log('Failed to fetch application');
+    }
+  };
+
+  const saveResponces = async (e) => {
+    e.preventDefault();
+    if (!user || (lastApplication === "")) {
+      console.log("Invalid inputs to save responces");
+      return;
+    }
+    const studentId = user.id;
+    const lastId = lastApplication;
+    console.log(studentId);
+    console.log(lastId);
+    const response = await fetch('http://localhost:8000/updateLastId', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ studentId, lastId })
+    });
+
+    if (response.ok) {
+        const data = await response.json();
+        console.log(data);
+    } else {
+        console.log('Failed to update lastId');
+    }
+};
+
 
   //<button className="btn btn-outline w-20" onClick={saveJob}>Save</button>
 
@@ -139,12 +174,17 @@ const JobCard = ({ job }) => {
           <h3>| Duration: {job.Duration} Weeks</h3>
         </div>
         <p>{job.short_desc}</p>
-        {(responce !== "") && <>{responce}</>}
+        {(responce !== "") && <div className="mt-4 font-bold">{responce}</div>}
+        {applied &&
+          <button className="btn btn-outline w-40" onClick={saveResponces}>
+            Use as default
+          </button>
+        }
         {toggleApply ? 
           <>
             <h2 className="card-title mt-10">Application:</h2>
             <div className="flex flex-row justify-between">
-              <button className="btn btn-outline w-50" onClick={fetchLast}>Use default applicaiton</button>
+              <button className="btn btn-outline w-50" onClick={fetchApplication}>Use default applicaiton</button>
               <button className="btn btn-outline w-12" onClick={() => setToggleApply(false)}>X</button>
             </div>
             <div className="form-control ">
@@ -211,9 +251,6 @@ const JobCard = ({ job }) => {
               </div>
             </div>
             <div className="form-control mt-6">
-              <button className="btn btn-outline w-50" onClick={saveResponces}>
-                Save responces as default
-              </button>
               <button className="btn1 py-3 text-xl" onClick={apply}>
                 Apply!
               </button>
@@ -221,8 +258,12 @@ const JobCard = ({ job }) => {
           </>
         :
           <div className="card-actions flex flex-row justify-center mt-3">
-            <button className="btn btn-outline">View Job</button>
-            <button className="btn btn-outline" onClick={() => setToggleApply(true)}>Apply to job</button>
+            {!applied &&
+              <>
+                <button className="btn btn-outline">Save Job</button>
+                <button className="btn btn-outline" onClick={() => setToggleApply(true)}>Apply to job</button>
+              </>
+            }
           </div>
         }
       </div>
