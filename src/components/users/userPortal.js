@@ -6,14 +6,16 @@ import Footer from "../../sharedPage/Footer/Footer";
 
 const UserPortal = () => {
   return (
-    <div className="bg-portalBG p-10">
-      <div className="mt-10 w-full">
-        <PortalHeader />
-        <Body />
-        <Footer />
-        <ToastContainer />
+
+      <div className="bg-portalBG p-10">
+        <div className="mt-10 w-full">
+          <PortalHeader />
+          <Body />
+          <Footer />
+          <ToastContainer />
+        </div>
       </div>
-    </div>
+
   );
 };
 

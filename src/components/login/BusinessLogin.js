@@ -2,14 +2,14 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "../../sharedPage/customCss/Custom.css";
 import loginImg from "../../assets/login.png";
-import { useUser } from "../../UserContext";
+import { useBusiness } from "../../BusinessContext";
 
-const Login = () => {
+const BusinessLogin = () => {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
-  const { setUser } = useUser();
+  const { setBusiness } = useBusiness();
   const [showPassword, setShowPassword] = useState(false);
   const [showError, setShowError] = useState(false);
   const navigate = useNavigate();
@@ -29,7 +29,7 @@ const Login = () => {
     }
 
     try {
-      const response = await fetch("http://localhost:8000/studentLogin", {
+      const response = await fetch("http://localhost:8000/businessLogin", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -39,9 +39,9 @@ const Login = () => {
 
       if (response.status === 200) {
         const userData = await response.json();
-        setUser(userData);
+        setBusiness(userData);
         console.log("Login successful:");
-        navigate("/userPortal");
+        navigate("/businessPortal");
       } else {
         console.error("Error logging in:", response.status);
       }
@@ -70,16 +70,13 @@ const Login = () => {
           <div className="card-body xl:py-[65px] xl:px-[40px]">
             <div className="form-control">
               <h1 className="text-5xl blue-medium font-serif font-bold mb-5">
-                Student Log In
+                Business Log In
               </h1>
               <div className="mb-5">
-                <Link
-                  to="/businesslogin"
-                  className="blue-medium text-md underline"
-                >
-                  Switch to Business
-                </Link>
-              </div>
+                  <Link to="/login" className="blue-medium text-md underline">
+                    Switch to Student
+                  </Link>
+                </div>
               <label className="label">
                 <span className="label-text">Email</span>
               </label>
@@ -143,4 +140,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default BusinessLogin;
