@@ -1,6 +1,6 @@
 import React from "react";
-import job from "../../assets/job-removebg-preview.png";
-import intern from "../../assets/intern-removebg-preview.png";
+// import job from "../../assets/job-removebg-preview.png";
+// import intern from "../../assets/intern-removebg-preview.png";
 import "../../sharedPage/customCss/Custom.css";
 const ServiceType = () => {
   const services = [
