@@ -43,7 +43,7 @@ const BusinessLogin = () => {
         console.log("Login successful:");
         navigate("/businessPortal");
       } else {
-        console.error("Error logging in:", response.status);
+        console.error("Error logging in:", response.status, response.body);
       }
     } catch (error) {
       console.error("Error logging in:", error.message);

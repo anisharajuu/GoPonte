@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import DetailsJob from "../components/alljobs/DetailsJob";
 import Contacts from "../components/resources/BusinessComponents/BusinessContact.js";
+// import Home from "../components/home/Home";
 import Login from "../components/login/Login";
 import Signup from "../components/Signup/Signup";
 import BusinessSignup from "../components/Signup/BusinessSignup";
@@ -11,8 +12,8 @@ import UserSupport from "../components/support/UserSupport.js";
 import FAQ from "../components/support/FAQ.js";
 import Main from "../layout/Main";
 import UserPortal from "../components/users/userPortal.js";
+import BusinessLogin from "../components/login/BusinessLogin.js";
 import BusinessPortal from "../components/business/BusinessPortal.js";
-import BusinessLogin from "../components/login/BusinessLogin";
 
 const routes = createBrowserRouter([
   {
