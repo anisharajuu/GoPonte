@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/static/css/main.02008e7f.css",
+    "main.js": "/static/js/main.a2f75045.js",
+    "static/js/787.8736cb20.chunk.js": "/static/js/787.8736cb20.chunk.js",
+    "static/media/peoples-choice.png": "/static/media/peoples-choice.1d121361ea016b4ea4f2.png",
+    "static/media/login.png": "/static/media/login.6b076a42c9a298c319fc.png",
+    "static/media/signup.png": "/static/media/signup.e0c7a71b42eecb31a477.png",
+    "static/media/hero-image.png": "/static/media/hero-image.58f27d926e420ec2f8ed.png",
+    "static/media/dollar-sign.png": "/static/media/dollar-sign.d03f2c664e571a9e7326.png",
+    "static/media/work.png": "/static/media/work.69ad4fab3a90dabcafd0.png",
+    "static/media/rocket.png": "/static/media/rocket.106ef7c9ed36d69fdcc6.png",
+    "static/media/intern-removebg-preview.png": "/static/media/intern-removebg-preview.b87979e442e898bb7c7c.png",
+    "static/media/job-removebg-preview.png": "/static/media/job-removebg-preview.8b304b82cb71e38c4fc0.png",
+    "index.html": "/index.html",
+    "static/media/wave (1).svg": "/static/media/wave (1).78b0749847bede27c49211371a5dc981.svg",
+    "main.02008e7f.css.map": "/static/css/main.02008e7f.css.map",
+    "main.a2f75045.js.map": "/static/js/main.a2f75045.js.map",
+    "787.8736cb20.chunk.js.map": "/static/js/787.8736cb20.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.02008e7f.css",
+    "static/js/main.a2f75045.js"
+  ]
+}
