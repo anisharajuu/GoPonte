@@ -73,10 +73,10 @@ const BusinessLogin = () => {
                 Business Log In
               </h1>
               <div className="mb-5">
-                <Link to="/login" className="blue-medium text-md underline">
-                  Switch to Student
-                </Link>
-              </div>
+                  <Link to="/login" className="blue-medium text-md underline">
+                    Switch to Student
+                  </Link>
+                </div>
               <label className="label">
                 <span className="label-text">Email</span>
               </label>

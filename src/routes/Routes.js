@@ -12,12 +12,9 @@ import UserSupport from "../components/support/UserSupport.js";
 import FAQ from "../components/support/FAQ.js";
 import Main from "../layout/Main";
 import UserPortal from "../components/users/userPortal.js";
-<<<<<<< HEAD
 import BusinessPortal from "../components/business/BusinessPortal.js";
 import BusinessLogin from "../components/login/BusinessLogin";
 import ProtectedBusinessRoute from "../ProtectedBusinessRoute.js";
-=======
->>>>>>> parent of 0132512 (added useContext for business login)
 
 const routes = createBrowserRouter([
   {
@@ -76,7 +73,6 @@ const routes = createBrowserRouter([
     path: "/userPortal",
     element: <UserPortal />,
   },
-<<<<<<< HEAD
   {
     path: "/businessPortal",
     element: (
@@ -85,8 +81,6 @@ const routes = createBrowserRouter([
       </ProtectedBusinessRoute>
     ),
   },
-=======
->>>>>>> parent of 0132512 (added useContext for business login)
 ]);
 
 export default routes;
