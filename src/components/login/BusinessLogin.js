@@ -9,7 +9,7 @@ const BusinessLogin = () => {
     email: "",
     password: "",
   });
-  const { setBusiness, business } = useBusiness();
+  const { setBusiness } = useBusiness();
   const [showPassword, setShowPassword] = useState(false);
   const [showError, setShowError] = useState(false);
   const navigate = useNavigate();
@@ -40,7 +40,6 @@ const BusinessLogin = () => {
       if (response.status === 200) {
         const userData = await response.json();
         setBusiness(userData);
-        console.log(business);
         console.log("Login successful:");
         navigate("/businessPortal");
       } else {
@@ -74,10 +73,10 @@ const BusinessLogin = () => {
                 Business Log In
               </h1>
               <div className="mb-5">
-                <Link to="/login" className="blue-medium text-md underline">
-                  Switch to Student
-                </Link>
-              </div>
+                  <Link to="/login" className="blue-medium text-md underline">
+                    Switch to Student
+                  </Link>
+                </div>
               <label className="label">
                 <span className="label-text">Email</span>
               </label>
