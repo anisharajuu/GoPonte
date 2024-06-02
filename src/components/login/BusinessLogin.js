@@ -9,11 +9,11 @@ const BusinessLogin = () => {
     email: "",
     password: "",
   });
-  const { setBusiness } = useBusiness();
+  const { login } = useBusiness();
   const [showPassword, setShowPassword] = useState(false);
   const [showError, setShowError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
-
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -28,25 +28,13 @@ const BusinessLogin = () => {
       return;
     }
 
-    try {
-      const response = await fetch("http://localhost:8000/businessLogin", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+    const result = await login(formData.email, formData.password);
 
-      if (response.status === 200) {
-        const userData = await response.json();
-        setBusiness(userData);
-        console.log("Login successful:");
-        navigate("/businessPortal");
-      } else {
-        console.error("Error logging in:", response.status, response.body);
-      }
-    } catch (error) {
-      console.error("Error logging in:", error.message);
+    if (result.success) {
+      navigate("/businessPortal");
+    } else {
+      setErrorMessage(result.error);
+      console.error("Error logging in:", result.error);
     }
   };
 
@@ -128,6 +116,11 @@ const BusinessLogin = () => {
                 </Link>
               </label>
             </div>
+            {errorMessage && (
+              <div className="text-center text-red-500 mt-2">
+                {errorMessage}
+              </div>
+            )}
             <div className="form-control mt-6">
               <button className="btn1 py-3 text-xl" onClick={handleLogin}>
                 Log In

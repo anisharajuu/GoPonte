@@ -11,8 +11,9 @@ const ActiveJobs = () => {
   useEffect(() => {
     const fetchJobs = async () => {
       try {
+        console.log(business.data);
         const response = await fetch(
-          `http://localhost:8000/jobPostings/${business.id}`
+          `http://localhost:8000/jobPostings/${business.data.BusId}`
         );
 
         if (response.ok) {
@@ -27,7 +28,7 @@ const ActiveJobs = () => {
       }
     };
     fetchJobs(); // Call fetchJobPostings function when component mounts
-  }, [business.id]);
+  }, [business.data.id]);
 
   return (
     <>

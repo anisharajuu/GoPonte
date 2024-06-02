@@ -412,13 +412,12 @@ app.get("/jobPostings/:businessId", (req, res) => {
     return res.status(400).json({ error: "Missing businessId parameter" });
   }
 
-  const query =
-    `SELECT jp.*, b.BusName 
+  const query = `SELECT jp.*, b.BusName 
     FROM JobPostings jp 
     JOIN Businesses b ON jp.business = b.BusId  
-    WHERE jp.businessId = ?`;
-  pool.query(query,[businessId], function (err, results) {
-  if (err) {
+    WHERE jp.business = ?`;
+  pool.query(query, [businessId], function (err, results) {
+    if (err) {
       console.error("Error querying the database:", err);
       return res.status(500).json({ error: "Internal Server Error" });
     }

@@ -1,21 +1,22 @@
 import React, { useState } from "react";
-import { useUser } from '../../UserContext';
+import { useUser } from "../../UserContext";
 import { useNavigate } from "react-router-dom";
 
 const JobCard = ({ job }) => {
   const { user } = useUser();
   const navigate = useNavigate();
-  if (!user) {navigate("/");}
+  if (!user) {
+    navigate("/");
+  }
   const [formData, setFormData] = useState({
-    name: '',
-    gradYear: '',
-    university: '',
-    experience: '',
-    jobId: job.job_id, 
-    userId: user.id, 
-    resume: null,   
+    name: "",
+    gradYear: "",
+    university: "",
+    experience: "",
+    jobId: job.job_id,
+    userId: user.id,
+    resume: null,
   });
-
 
   const [toggleApply, setToggleApply] = useState(false);
   const [responce, setResponse] = useState("");
@@ -32,7 +33,7 @@ const JobCard = ({ job }) => {
     }
   };
 
-/*
+  /*
   const saveJob  = async (e) => {
     e.preventDefault();
     try {
@@ -60,86 +61,87 @@ const JobCard = ({ job }) => {
     e.preventDefault();
     const data = new FormData();
     // Append each part of formData to the FormData object
-    data.append('name', formData.name);
-    data.append('gradYear', formData.gradYear);
-    data.append('university', formData.university);
-    data.append('experience', formData.experience);
-    data.append('jobId', formData.jobId);
-    data.append('userId', formData.userId);
-    data.append('resume', formData.resume);  // Handle the resume file upload
+    data.append("name", formData.name);
+    data.append("gradYear", formData.gradYear);
+    data.append("university", formData.university);
+    data.append("experience", formData.experience);
+    data.append("jobId", formData.jobId);
+    data.append("userId", formData.userId);
+    data.append("resume", formData.resume); // Handle the resume file upload
     /*
     for (let [key, value] of data.entries()) {
       console.log(`${key}: ${value}`);
     }
     */
-   //console.log(job);
+    //console.log(job);
     try {
-        const response = await fetch("http://localhost:8000/apply", {
-            method: "POST",
-            body: data,
-        });
+      const response = await fetch("http://localhost:8000/apply", {
+        method: "POST",
+        body: data,
+      });
 
-        if (response.ok) {
-            console.log("Successfully applied");
-            setToggleApply(false); 
-            setResponse("Application Submitted!"); 
-            const data = await response.json();
-            setLastApplication(data.applicationId); 
-            setApplied(true);
-        } else {
-            console.error("Failed to apply to job posting:", response.status);
-            setResponse("Failed to submit application."); 
-        }
+      if (response.ok) {
+        console.log("Successfully applied");
+        setToggleApply(false);
+        setResponse("Application Submitted!");
+        const data = await response.json();
+        setLastApplication(data.applicationId);
+        setApplied(true);
+      } else {
+        console.error("Failed to apply to job posting:", response.status);
+        setResponse("Failed to submit application.");
+      }
     } catch (error) {
-        console.error("Error applying to job posting:", error);
+      console.error("Error applying to job posting:", error);
     }
-}
-
-
-
+  };
 
   const fetchProfile = async () => {
     try {
-        const response = await fetch(`http://localhost:8000/fetchStudent/${user.id}`);
-        if (response.ok) {
-            const data = await response.json();
-            return data.lastId;
-        } else {
-            console.error("Failed to fetch student:", response.status);
-        }
+      const response = await fetch(
+        `http://localhost:8000/fetchStudent/${user.id}`
+      );
+      if (response.ok) {
+        const data = await response.json();
+        return data.lastId;
+      } else {
+        console.error("Failed to fetch student:", response.status);
+      }
     } catch (error) {
-        console.error("Error fetching student:", error);
+      console.error("Error fetching student:", error);
     }
-  }
-
+  };
 
   const fetchApplication = async (e) => {
     e.preventDefault();
     const applicationId = await fetchProfile();
-    if (!applicationId){
+    if (!applicationId) {
       console.log("Error: student not fetched");
       return;
     }
     console.log(applicationId);
-    const response = await fetch(`http://localhost:8000/getApplicationById/${applicationId}`);
+    const response = await fetch(
+      `http://localhost:8000/getApplicationById/${applicationId}`
+    );
     if (response.ok) {
-        const data = await response.json();
-        //console.log(data);
-        setFormData(prevFormData => ({
-          ...prevFormData,
-          name: data.name,
-          gradYear: data.gradYear,
-          university: data.university,
-          experience: data.experience}));
-        setSavedDefault(true);
+      const data = await response.json();
+      //console.log(data);
+      setFormData((prevFormData) => ({
+        ...prevFormData,
+        name: data.name,
+        gradYear: data.gradYear,
+        university: data.university,
+        experience: data.experience,
+      }));
+      setSavedDefault(true);
     } else {
-        console.log('Failed to fetch application');
+      console.log("Failed to fetch application");
     }
   };
 
   const saveResponces = async (e) => {
     e.preventDefault();
-    if (!user || (lastApplication === "")) {
+    if (!user || lastApplication === "") {
       console.log("Invalid inputs to save responces");
       return;
     }
@@ -147,20 +149,19 @@ const JobCard = ({ job }) => {
     const lastId = lastApplication;
     console.log(studentId);
     console.log(lastId);
-    const response = await fetch('http://localhost:8000/updateLastId', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ studentId, lastId })
+    const response = await fetch("http://localhost:8000/updateLastId", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ studentId, lastId }),
     });
 
     if (response.ok) {
-        const data = await response.json();
-        console.log(data);
+      const data = await response.json();
+      console.log(data);
     } else {
-        console.log('Failed to update lastId');
+      console.log("Failed to update lastId");
     }
-};
-
+  };
 
   //<button className="btn btn-outline w-20" onClick={saveJob}>Save</button>
 
@@ -174,18 +175,28 @@ const JobCard = ({ job }) => {
           <h3>| Duration: {job.Duration} Weeks</h3>
         </div>
         <p>{job.short_desc}</p>
-        {(responce !== "") && <div className="mt-4 font-bold">{responce}</div>}
-        {applied &&
+        {responce !== "" && <div className="mt-4 font-bold">{responce}</div>}
+        {applied && (
           <button className="btn btn-outline w-40" onClick={saveResponces}>
             Use as default
           </button>
-        }
-        {toggleApply ? 
+        )}
+        {toggleApply ? (
           <>
             <h2 className="card-title mt-10">Application:</h2>
             <div className="flex flex-row justify-between">
-              <button className="btn btn-outline w-50" onClick={fetchApplication}>Use default applicaiton</button>
-              <button className="btn btn-outline w-12" onClick={() => setToggleApply(false)}>X</button>
+              <button
+                className="btn btn-outline w-50"
+                onClick={fetchApplication}
+              >
+                Use default applicaiton
+              </button>
+              <button
+                className="btn btn-outline w-12"
+                onClick={() => setToggleApply(false)}
+              >
+                X
+              </button>
             </div>
             <div className="form-control ">
               <div className="flex flex-col gap-5">
@@ -245,9 +256,10 @@ const JobCard = ({ job }) => {
                 <input
                   type="file"
                   accept=".pdf"
-                  onChange={e => setFormData({ ...formData, resume: e.target.files[0] })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, resume: e.target.files[0] })
+                  }
                 />
-
               </div>
             </div>
             <div className="form-control mt-6">
@@ -256,16 +268,21 @@ const JobCard = ({ job }) => {
               </button>
             </div>
           </>
-        :
+        ) : (
           <div className="card-actions flex flex-row justify-center mt-3">
-            {!applied &&
+            {!applied && (
               <>
                 <button className="btn btn-outline">Save Job</button>
-                <button className="btn btn-outline" onClick={() => setToggleApply(true)}>Apply to job</button>
+                <button
+                  className="btn btn-outline"
+                  onClick={() => setToggleApply(true)}
+                >
+                  Apply to job
+                </button>
               </>
-            }
+            )}
           </div>
-        }
+        )}
       </div>
     </div>
   );

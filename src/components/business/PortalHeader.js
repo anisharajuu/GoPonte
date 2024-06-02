@@ -7,7 +7,7 @@ const PortalHeader = () => {
   const navigate = useNavigate();
 
   const onSignOut = () => {
-    setBusiness(null);
+    setBusiness({ data: null, isAuthenticated: false });
     navigate("/");
   };
   return (

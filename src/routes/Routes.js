@@ -14,6 +14,7 @@ import Main from "../layout/Main";
 import UserPortal from "../components/users/userPortal.js";
 import BusinessLogin from "../components/login/BusinessLogin.js";
 import BusinessPortal from "../components/business/BusinessPortal.js";
+import ProtectedBusinessRoute from "../ProtectedBusinessRoute.js";
 
 const routes = createBrowserRouter([
   {
@@ -78,7 +79,11 @@ const routes = createBrowserRouter([
   },
   {
     path: "/businessPortal",
-    element: <BusinessPortal />,
+    element: (
+      <ProtectedBusinessRoute>
+        <BusinessPortal />,
+      </ProtectedBusinessRoute>
+    ),
   },
 ]);
 
