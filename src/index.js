@@ -3,11 +3,22 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter , Routes, Route} from 'react-router-dom';
+import { BusinessProvider } from './BusinessContext';
+import { UserProvider } from './UserContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+    <BusinessProvider>
+      <UserProvider>
+        <Routes>
+          <Route path= "/*" element= {<App/>} />
+        </Routes>
+      </UserProvider>
+    </BusinessProvider>
+    </BrowserRouter>
   </React.StrictMode>
 );
 
