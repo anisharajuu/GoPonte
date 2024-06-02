@@ -43,7 +43,7 @@ const BusinessLogin = () => {
         console.log("Login successful:");
         navigate("/businessPortal");
       } else {
-        console.error("Error logging in:", response.status);
+        console.error("Error logging in:", response.status, response.body);
       }
     } catch (error) {
       console.error("Error logging in:", error.message);
@@ -73,10 +73,10 @@ const BusinessLogin = () => {
                 Business Log In
               </h1>
               <div className="mb-5">
-                  <Link to="/login" className="blue-medium text-md underline">
-                    Switch to Student
-                  </Link>
-                </div>
+                <Link to="/login" className="blue-medium text-md underline">
+                  Switch to Student
+                </Link>
+              </div>
               <label className="label">
                 <span className="label-text">Email</span>
               </label>
