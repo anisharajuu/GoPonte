@@ -38,8 +38,8 @@ const BusinessLogin = () => {
       });
 
       if (response.status === 200) {
-        const userData = await response.json();
-        setBusiness(userData);
+        const businessData = await response.json();
+        setBusiness(businessData);
         console.log("Login successful:");
         navigate("/businessPortal");
       } else {
