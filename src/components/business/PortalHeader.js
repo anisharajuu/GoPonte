@@ -1,6 +1,6 @@
 import React from "react";
-import { useBusiness } from "../../BusinessContext";
 import { useNavigate } from "react-router-dom";
+import { useBusiness } from "../../hooks/BusinessContext";
 
 const PortalHeader = () => {
   const { setBusiness } = useBusiness();

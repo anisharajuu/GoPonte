@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import JobCard from "./JobCard";
 import AddJob from "./AddJob";
-import { useBusiness } from "../../BusinessContext";
+import { useBusiness } from "../../hooks/BusinessContext";
 
 const ActiveJobs = () => {
   const [showModal, setShowModal] = useState(false);
