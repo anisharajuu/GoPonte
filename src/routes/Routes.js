@@ -13,6 +13,7 @@ import Main from "../layout/Main";
 import UserPortal from "../components/users/userPortal.js";
 import BusinessPortal from "../components/business/BusinessPortal.js";
 import BusinessLogin from "../components/login/BusinessLogin";
+// import ProtectedBusinessRoute from "../ProtectedBusinessRoute.js";
 
 const routes = createBrowserRouter([
   {
@@ -69,15 +70,18 @@ const routes = createBrowserRouter([
         path: "/FAQ",
         element: <FAQ />,
       },
+      {
+        path: "/userPortal",
+        element: <UserPortal />,
+      },
+      {
+        path: "/businessPortal",
+        element: (
+            <BusinessPortal />
+
+        ),
+      },
     ],
-  },
-  {
-    path: "/userPortal",
-    element: <UserPortal />,
-  },
-  {
-    path: "/businessPortal",
-    element: <BusinessPortal />,
   },
 ]);
 
