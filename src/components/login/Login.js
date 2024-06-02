@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "../../sharedPage/customCss/Custom.css";
 import loginImg from "../../assets/login.png";
-import { useUser } from "../../UserContext";
+import { useUser } from '../../UserContext';
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -70,16 +70,8 @@ const Login = () => {
           <div className="card-body xl:py-[65px] xl:px-[40px]">
             <div className="form-control">
               <h1 className="text-5xl blue-medium font-serif font-bold mb-5">
-                Student Log In
+                Log In
               </h1>
-              <div className="mb-5">
-                <Link
-                  to="/businesslogin"
-                  className="blue-medium text-md underline"
-                >
-                  Switch to Business
-                </Link>
-              </div>
               <label className="label">
                 <span className="label-text">Email</span>
               </label>
