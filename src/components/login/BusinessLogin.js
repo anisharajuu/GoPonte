@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "../../sharedPage/customCss/Custom.css";
 import loginImg from "../../assets/login.png";
-import { useBusiness } from "../../BusinessContext";
+import { useBusiness } from "../../hooks/BusinessContext";
 
 const BusinessLogin = () => {
   const [formData, setFormData] = useState({
@@ -73,10 +73,10 @@ const BusinessLogin = () => {
                 Business Log In
               </h1>
               <div className="mb-5">
-                  <Link to="/login" className="blue-medium text-md underline">
-                    Switch to Student
-                  </Link>
-                </div>
+                <Link to="/login" className="blue-medium text-md underline">
+                  Switch to Student
+                </Link>
+              </div>
               <label className="label">
                 <span className="label-text">Email</span>
               </label>

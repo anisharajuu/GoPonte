@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import JobCard from "./JobCard";
-import { useUser } from '../../UserContext';
+// import JobCard from "./JobCard";
+import { useUser } from "../../hooks/UserContext";
 
 
 const Applications = () => {

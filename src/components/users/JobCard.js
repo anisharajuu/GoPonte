@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useUser } from '../../UserContext';
+import { useUser } from "../../hooks/UserContext";
 import { useNavigate } from "react-router-dom";
 
 const JobCard = ({ job }) => {
