@@ -1,19 +1,20 @@
 import React from "react";
-import { useBusiness } from "../../BusinessContext";
 import { useNavigate } from "react-router-dom";
+import { useUser } from '../../UserContext';
 
 const PortalHeader = () => {
-  const { setBusiness } = useBusiness();
+  const { user, setUser } = useUser();
   const navigate = useNavigate();
 
+
   const onSignOut = () => {
-    setBusiness({ data: null, isAuthenticated: false });
+    setUser(null);
     navigate("/");
-  };
+  }
   return (
     <div className="mt-5">
       <div className="flex flex-row justify-between align-items">
-        <div className="text-3xl font-bold">Welcome</div>
+        <div className="text-3xl font-bold">Welcome {user.firstName}!</div>
         <button onClick={onSignOut}>Sign Out</button>
       </div>
     </div>

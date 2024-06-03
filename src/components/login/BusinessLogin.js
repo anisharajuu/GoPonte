@@ -2,18 +2,18 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "../../sharedPage/customCss/Custom.css";
 import loginImg from "../../assets/login.png";
-import { useUser } from "../../UserContext";
+import { useBusiness } from "../../BusinessContext";
 
-const Login = () => {
+const BusinessLogin = () => {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
-  const { setUser } = useUser();
+  const { login } = useBusiness();
   const [showPassword, setShowPassword] = useState(false);
   const [showError, setShowError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
-
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -28,25 +28,13 @@ const Login = () => {
       return;
     }
 
-    try {
-      const response = await fetch("http://localhost:8000/studentLogin", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+    const result = await login(formData.email, formData.password);
 
-      if (response.status === 200) {
-        const userData = await response.json();
-        setUser(userData);
-        console.log("Login successful:");
-        navigate("/userPortal");
-      } else {
-        console.error("Error logging in:", response.status);
-      }
-    } catch (error) {
-      console.error("Error logging in:", error.message);
+    if (result.success) {
+      navigate("/businessPortal");
+    } else {
+      setErrorMessage(result.error);
+      console.error("Error logging in:", result.error);
     }
   };
 
@@ -70,14 +58,11 @@ const Login = () => {
           <div className="card-body xl:py-[65px] xl:px-[40px]">
             <div className="form-control">
               <h1 className="text-5xl blue-medium font-serif font-bold mb-5">
-                Student Log In
+                Business Log In
               </h1>
               <div className="mb-5">
-                <Link
-                  to="/businesslogin"
-                  className="blue-medium text-md underline"
-                >
-                  Switch to Business
+                <Link to="/login" className="blue-medium text-md underline">
+                  Switch to Student
                 </Link>
               </div>
               <label className="label">
@@ -131,6 +116,11 @@ const Login = () => {
                 </Link>
               </label>
             </div>
+            {errorMessage && (
+              <div className="text-center text-red-500 mt-2">
+                {errorMessage}
+              </div>
+            )}
             <div className="form-control mt-6">
               <button className="btn1 py-3 text-xl" onClick={handleLogin}>
                 Log In
@@ -143,4 +133,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default BusinessLogin;

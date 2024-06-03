@@ -1,15 +1,21 @@
 import React, { useState, useEffect } from "react";
 import JobCard from "./JobCard";
 import AddJob from "./AddJob";
+import { useBusiness } from "../../BusinessContext";
 
 const ActiveJobs = () => {
   const [showModal, setShowModal] = useState(false);
   const [jobList, setJobList] = useState([]);
+  const { business } = useBusiness();
 
   useEffect(() => {
     const fetchJobs = async () => {
       try {
-        const response = await fetch("http://localhost:8000/jobPostings");
+        console.log(business.data);
+        const response = await fetch(
+          `http://localhost:8000/jobPostings/${business.data.BusId}`
+        );
+
         if (response.ok) {
           const data = await response.json();
           setJobList(data); // Set job postings state with fetched data
@@ -22,7 +28,7 @@ const ActiveJobs = () => {
       }
     };
     fetchJobs(); // Call fetchJobPostings function when component mounts
-  }, []);
+  }, [business.data.id]);
 
   return (
     <>
